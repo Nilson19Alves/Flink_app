@@ -1,5 +1,6 @@
 package com.nilsonalves.flink_app;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -25,7 +26,9 @@ public class Flink_Login extends AppCompatActivity {
         entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Telefone: " + telefone.getText() + "\nSenha: " + senha.getText(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
