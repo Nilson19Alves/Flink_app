@@ -12,12 +12,13 @@
     tools:context=".Flink_Home">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/qrCode"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         app:srcCompat="@drawable/icons8_qr_code_26px" />
 
     <TextView
+        android:id="@+id/qrCode_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="top|center"

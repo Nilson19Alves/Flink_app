@@ -1,11 +1,14 @@
 package com.nilsonalves.flink_app;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -13,6 +16,8 @@ import java.util.List;
 
 public class Flink_Home extends AppCompatActivity {
 
+    private ImageView qrCode;
+    public static TextView qrCode_result;
     private ListView lista;
 
     @Override
@@ -21,10 +26,13 @@ public class Flink_Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         coletar_ID();
         listar_mercado();
+        open_qrCode();
     }
 
     // coletar todos os componetes da activity pelo ID
     private void coletar_ID() {
+        qrCode = findViewById(R.id.qrCode);
+        qrCode_result = findViewById(R.id.qrCode_result);
         lista = findViewById(R.id.lista);
     }
 
@@ -46,6 +54,17 @@ public class Flink_Home extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String clickedItem=(String) lista.getItemAtPosition(position);
                 Toast.makeText(Flink_Home.this,clickedItem,Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    // Abrir Leitor de QR CODE
+    private void open_qrCode() {
+        qrCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Flink_qrCode.class);
+                startActivity(intent);
             }
         });
     }

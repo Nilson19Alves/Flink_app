@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nilsonalves.flink_app">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_flink"
@@ -9,7 +12,8 @@
         android:roundIcon="@drawable/logo_flink"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Flink_Home"></activity>
+        <activity android:name=".Flink_qrCode"></activity>
+        <activity android:name=".Flink_Home" />
         <activity android:name=".Flink_Login" />
         <activity android:name=".Flink_Splash">
             <intent-filter>
