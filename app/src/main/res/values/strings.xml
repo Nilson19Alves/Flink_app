@@ -9,4 +9,11 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <!-- BottomNavegation - MENU -->
+    <string name="bottom_home">Início</string>
+    <string name="bottom_favor">Favorito</string>
+    <string name="bottom_list">Lista</string>
+    <string name="bottom_car">Carrinho</string>
+    <string name="bottom_perf">Perfil</string>
 </resources>

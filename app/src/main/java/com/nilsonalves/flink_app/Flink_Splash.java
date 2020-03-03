@@ -2,7 +2,7 @@ package com.nilsonalves.flink_app;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class Flink_Splash extends AppCompatActivity {
@@ -15,7 +15,7 @@ public class Flink_Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(), Flink_Login.class);
+                Intent intent = new Intent(getApplicationContext(), Flink_Access.class);
                 startActivity(intent);
                 finish();
             }
