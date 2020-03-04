@@ -16,4 +16,14 @@
     <string name="bottom_list">Lista</string>
     <string name="bottom_car">Carrinho</string>
     <string name="bottom_perf">Perfil</string>
+
+    <!-- BottomNavigation - BOTTOM_HOME -->
+    <string name="home_title">Oi, Clarissa!</string>
+    <string name="home_sub_title">Para qual mercado você deseja ir?</string>
+
+    <!-- Descriptions - ImagemView -->
+    <string name="img_qr_code">QR Code</string>
+    <string name="img_barra_superior">Barra Superior</string>
+    <string name="img_help">Help</string>
+
 </resources>

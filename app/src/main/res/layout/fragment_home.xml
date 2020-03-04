@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:gravity="center"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbarStyle="insideInset"
+    tools:ignore="ScrollViewCount">
+
+    <GridLayout
+        android:padding="1dp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/btn_faq"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/img_help"
+            android:src="@drawable/icon_help"/>
+
+        <ImageView
+            android:contentDescription="@string/img_barra_superior"
+            android:layout_width="258dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-50dp"
+            android:src="@drawable/icon_barra_superior"/>
+
+        <ImageView
+            android:id="@+id/btn_code"
+            android:contentDescription="@string/img_qr_code"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/icons8_qr_code_26px"/>
+
+    </GridLayout>
 
     <TextView
+        android:id="@+id/title_home_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Home"
-        android:textSize="12pt"
-        android:textAlignment="center"/>
+        android:fontFamily="@font/montserrat"
+        android:text="@string/home_title"
+        android:textFontWeight="bolder"
+        android:textSize="24sp"
+        android:padding="10dp"
+        android:textColor="@color/Black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/home_sub_title"
+        android:textColor="@color/Black"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/lista_supermer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:scrollbars="vertical" />
 
 </LinearLayout>
