@@ -9,12 +9,13 @@
     tools:ignore="ScrollViewCount">
 
     <GridLayout
-        android:padding="1dp"
+        android:padding="5dp"
         android:layout_gravity="center_vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
+            android:layout_gravity="left"
             android:id="@+id/btn_faq"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -22,6 +23,7 @@
             android:src="@drawable/icon_help"/>
 
         <ImageView
+            android:layout_gravity="center"
             android:contentDescription="@string/img_barra_superior"
             android:layout_width="258dp"
             android:layout_height="wrap_content"
@@ -29,6 +31,7 @@
             android:src="@drawable/icon_barra_superior"/>
 
         <ImageView
+            android:layout_gravity="right"
             android:id="@+id/btn_code"
             android:contentDescription="@string/img_qr_code"
             android:layout_width="40dp"
@@ -51,6 +54,7 @@
 
     <TextView
         android:padding="10dp"
+        android:layout_marginTop="-15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"

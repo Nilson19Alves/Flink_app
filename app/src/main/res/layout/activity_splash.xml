@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/DarkOrchid"
+    android:background="@color/White"
     android:orientation="vertical"
     tools:context=".Flink_Splash">
-
 
     <ImageView
         android:contentDescription="@string/app_name"
         android:id="@+id/imageView"
         android:layout_width="242dp"
         android:layout_height="236dp"
-        app:srcCompat="@drawable/logo_flink" />
+        app:srcCompat="@drawable/icon_logo_horizontal"/>
+
 </LinearLayout>

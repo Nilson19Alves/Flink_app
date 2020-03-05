@@ -9,9 +9,9 @@
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
-        android:icon="@drawable/logo_flink"
+        android:icon="@drawable/icon_logo_vertical"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo_flink"
+        android:roundIcon="@drawable/icon_logo_vertical"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".Flink_Access"></activity>
