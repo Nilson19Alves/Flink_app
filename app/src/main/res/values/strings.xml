@@ -22,9 +22,9 @@
     <string name="home_sub_title">Para qual mercado você deseja ir?</string>
     <!-- CardView - 01 -->
     <string name="home_card_img">Supermercado 01</string>
-    <string name="home_card_title">Mercado da Torre</string>
-    <string name="home_card_classcifica">5.0</string>
-    <string name="home_card_distancia">1.5 km distância</string>
+    <string name="home_card_title">Mercado</string>
+    <string name="home_card_classcifica">Class</string>
+    <string name="home_card_distancia">Km distância</string>
     <string name="home_card_status">Aberto até às 21:00</string>
     <string name="home_card_endereco">R. Cap. Rebelinha, 440 - Pina</string>
 

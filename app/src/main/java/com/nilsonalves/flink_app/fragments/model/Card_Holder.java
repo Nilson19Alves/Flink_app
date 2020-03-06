@@ -18,9 +18,9 @@ public class Card_Holder extends RecyclerView.ViewHolder {
     public Card_Holder(@NonNull View itemView) {
         super(itemView);
 
-        distancia_card = itemView.findViewById(R.id.distancia_card);
         title_card = itemView.findViewById(R.id.title_card);
         classifica_card = itemView.findViewById(R.id.classifica_card);
+        distancia_card = itemView.findViewById(R.id.distancia_card);
         status_card = itemView.findViewById(R.id.status_card);
         endereco_card = itemView.findViewById(R.id.endereco_card);
 

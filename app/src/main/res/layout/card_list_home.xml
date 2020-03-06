@@ -4,110 +4,132 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="3dp"
-    app:cardElevation="3dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="16dp"
+    android:padding="5dp"
     app:cardUseCompatPadding="true">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:gravity="center_vertical"
         tools:ignore="UselessLeaf">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="40dp"
             android:contentDescription="@string/home_card_img"
-            android:src="@drawable/baseline_shop_black_24" />
-
-        <TextView
-            android:id="@+id/distancia_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="58dp"
-            android:layout_marginEnd="30dp"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/home_card_distancia"
-            android:textColor="@color/BlueViolet"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:ignore="RelativeOverlap" />
+            android:src="@drawable/baseline_shop_black_24"/>
 
-        <TextView
-            android:id="@+id/title_card"
-            android:layout_width="wrap_content"
+        <GridLayout
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="67dp"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/home_card_title"
-            android:textColor="@color/Black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:ignore="RelativeOverlap" />
+            tools:ignore="AdapterViewChildren">
 
-        <TextView
-            android:id="@+id/classifica_card"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="259dp"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/home_card_classcifica"
-            android:textColor="@color/BlueViolet"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="RelativeOverlap" />
+            <TextView
+                android:id="@+id/title_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/home_card_title"
+                android:textColor="@color/Black"
+                android:textSize="20sp"
+                android:fontFamily="@font/montserrat"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/status_card"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="120dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/home_card_status"
-            android:textColor="@color/BlueViolet"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/endereco_card"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="150dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/home_card_endereco"
-            android:textColor="@color/Silver"
-            android:textSize="14sp" />
+                <ImageView
+                    android:contentDescription="@string/home_card_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_star_half_black_18"/>
 
-        <ImageView
-            android:id="@+id/map_img_card"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="308dp"
-            android:layout_marginTop="93dp"
-            android:contentDescription="@string/home_card_img"
-            android:src="@drawable/baseline_map_black_24" />
+                <TextView
+                    android:id="@+id/classifica_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/BlueViolet"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat"
+                    android:textStyle="bold" />
 
-    </RelativeLayout>
+                <Space
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"/>
+
+                <GridLayout
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/distancia_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/BlueViolet"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/montserrat"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_card_distancia"
+                        android:textColor="@color/Silver"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/montserrat"/>
+
+                </GridLayout>
+
+            </GridLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+
+            <GridLayout
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/status_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_card_status"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/BlueViolet"/>
+
+                <TextView
+                    android:id="@+id/endereco_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_card_endereco"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="14sp"/>
+
+            </GridLayout>
+
+            <ImageView
+                android:layout_gravity="right"
+                android:layout_marginTop="-40dp"
+                android:contentDescription="@string/home_card_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_map_black_24"/>
+
+        </GridLayout>
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
