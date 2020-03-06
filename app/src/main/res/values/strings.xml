@@ -33,4 +33,10 @@
     <string name="img_barra_superior">Barra Superior</string>
     <string name="img_help">Help</string>
 
+    <!-- Activity - LISTA -->
+    <string name="lista_title">Vamos fazer uma lista?</string>
+    <string name="lista_sub_title">Vamos começar por uma lista de compras para facilitar!</string>
+    <string name="lista_descript">Pesquise por o que precisar</string>
+    <string name="lista_itens">Itens populares</string>
+
 </resources>

@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:scrollbarStyle="insideInset"
-    tools:ignore="ScrollViewCount">
+    tools:context=".Flink_Lista">
 
     <GridLayout
         android:padding="2dp"
@@ -14,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <ImageButton
+            android:background="@color/SilverWhite"
             android:layout_gravity="left"
             android:id="@+id/btn_faq"
             android:layout_width="60dp"
@@ -32,9 +32,9 @@
             android:src="@drawable/icon_barra_superior"/>
 
         <ImageButton
-            android:background="@color/SilverWhite"
             android:layout_gravity="right"
             android:id="@+id/btn_code"
+            android:background="@color/SilverWhite"
             android:contentDescription="@string/img_qr_code"
             android:layout_width="60dp"
             android:layout_height="50dp"
@@ -48,30 +48,73 @@
         android:layout_height="30dp"/>
 
     <TextView
-        android:id="@+id/title_home_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/home_title"
-        android:textSize="16sp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
         android:textColor="@color/Black"
-        android:textStyle="bold" />
+        android:fontFamily="@font/montserrat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lista_title"/>
 
     <TextView
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:textColor="@color/Black"
+        android:fontFamily="@font/montserrat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/home_sub_title"
-        android:textColor="@color/Black"
-        android:textSize="14sp" />
+        android:text="@string/lista_sub_title"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lista_supermer"
+    <TextView
+        android:textColor="@color/Black"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lista_descript"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <SearchView
+        android:padding="10dp"
+        android:id="@+id/lista_filtro"
+        android:background="@color/White"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Silver"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/lista_itens"/>
+
+    <ListView
+        android:id="@+id/lista_compras"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/confirmar_lista"
+        android:layout_margin="10dp"
+        android:padding="2dp"
+        android:layout_gravity="bottom|right"
+        android:background="@drawable/baseline_check_white_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="RtlHardcoded" />
 
 </LinearLayout>

@@ -32,6 +32,7 @@ public class Card_Adapter extends RecyclerView.Adapter<Card_Holder> {
         holder.distancia_card.setText(Integer.toString(lista_homes.get(position).getDistancia()));
         holder.status_card.setText(lista_homes.get(position).getStatus());
         holder.endereco_card.setText(lista_homes.get(position).getEndereco());
+
     }
 
     @Override

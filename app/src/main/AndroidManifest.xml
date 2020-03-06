@@ -14,7 +14,8 @@
         android:roundIcon="@drawable/icon_logo_vertical"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Flink_Access"></activity>
+        <activity android:name=".Flink_Lista"></activity>
+        <activity android:name=".Flink_Access" />
         <activity android:name=".Flink_qrCode" />
         <activity android:name=".Flink_Home" />
         <activity android:name=".Flink_Login" />

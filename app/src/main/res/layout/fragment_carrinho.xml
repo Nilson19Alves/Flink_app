@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:text="Carrinho Vazio"
         android:textSize="12pt"
+        android:fontFamily="@font/montserrat"
         android:textAlignment="center"/>
 
 </LinearLayout>
