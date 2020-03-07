@@ -43,7 +43,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:text="@string/home_title"
-        android:textFontWeight="bolder"
         android:textSize="24sp"
         android:padding="10dp"
         android:textColor="@color/Black"
