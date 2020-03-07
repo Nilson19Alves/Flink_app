@@ -5,15 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/DarkOrchid"
+    android:background="@drawable/icon_fundo_splash"
     android:orientation="vertical"
     tools:context=".Flink_Splash">
-
 
     <ImageView
         android:contentDescription="@string/app_name"
         android:id="@+id/imageView"
         android:layout_width="242dp"
         android:layout_height="236dp"
-        app:srcCompat="@drawable/logo_flink" />
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/icon_logo_vertical"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/home_card_img"
+        android:src="@drawable/icon_title_splach"
+        tools:ignore="MissingConstraints" />
+
 </LinearLayout>
