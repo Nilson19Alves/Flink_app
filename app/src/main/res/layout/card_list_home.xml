@@ -4,132 +4,163 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="16dp"
+    app:cardElevation="20dp"
+    android:elevation="20dp"
+    app:cardCornerRadius="10dp"
+    android:orientation="horizontal"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
+        android:padding="2dp"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
         android:gravity="center_vertical"
-        tools:ignore="UselessLeaf">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/logo"
+            android:contentDescription="@string/app_name"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="top"
-            android:contentDescription="@string/home_card_img"
+            style="@style/TextAppearance.AppCompat.Large.Inverse"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="2dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginLeft="90dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_foreground"/>
+            android:fontFamily="@font/montserrat"
+            android:textSize="16sp"
+            android:textColor="@color/BlueViolet"
+            android:layout_gravity="left"
+            android:textStyle="bold"/>
 
         <GridLayout
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical"
+            android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="AdapterViewChildren">
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_star_half_black_18"/>
 
             <TextView
-                android:id="@+id/title_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/home_card_title"
-                android:textColor="@color/Black"
-                android:textSize="16sp"
+                android:gravity="center"
+                android:id="@+id/classifica_card"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
                 android:fontFamily="@font/montserrat"
-                android:textStyle="bold" />
-
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:contentDescription="@string/home_card_img"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_star_half_black_18"/>
-
-                <TextView
-                    android:id="@+id/classifica_card"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/BlueViolet"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/montserrat"
-                    android:textStyle="bold" />
-
-                <Space
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"/>
-
-                <GridLayout
-                    android:layout_gravity="center"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/distancia_card"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/BlueViolet"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/montserrat"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/home_card_distancia"
-                        android:textColor="@color/Silver"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/montserrat"/>
-
-                </GridLayout>
-
-            </GridLayout>
+                android:textSize="14sp"
+                android:textColor="@color/BlueViolet"
+                android:textStyle="bold"/>
 
             <Space
-                android:layout_width="match_parent"
-                android:layout_height="30dp"/>
+                android:layout_width="80dp"
+                android:layout_height="40dp"/>
 
-            <GridLayout
-                android:layout_gravity="center_vertical"
+            <LinearLayout
+                android:padding="2dp"
                 android:orientation="vertical"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/status_card"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_card_status"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:id="@+id/distancia_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
                     android:fontFamily="@font/montserrat"
-                    android:textColor="@color/BlueViolet"/>
+                    android:textSize="14sp"
+                    android:textColor="@color/BlueViolet"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/endereco_card"
-                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/home_card_endereco"
                     android:fontFamily="@font/montserrat"
-                    android:textSize="12sp"/>
+                    android:text="@string/home_card_distancia"
+                    android:textSize="12sp"
+                    android:textStyle="normal"/>
 
-            </GridLayout>
+            </LinearLayout>
+
+        </GridLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/Silver"/>
+
+    <LinearLayout
+        android:padding="2dp"
+        android:gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:padding="2dp"
+            android:layout_marginTop="100dp"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UselessLeaf">
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/status_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/home_card_status"
+                android:textSize="16sp"
+                android:textColor="@color/BlueViolet"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/endereco_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/home_card_endereco"
+                android:textSize="12sp"
+                android:textStyle="normal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <ImageButton
                 android:id="@+id/localiza_mercado"
-                android:layout_gravity="right"
-                android:background="@color/White"
-                android:layout_marginTop="-40dp"
-                android:contentDescription="@string/home_card_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/baseline_map_black_24"/>
+                android:layout_gravity="right"
+                android:background="@drawable/baseline_map_black_24"
+                android:contentDescription="@string/home_card_img" />
 
-        </GridLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

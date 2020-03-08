@@ -1,4 +1,4 @@
-package com.nilsonalves.flink_app.fragments.model;
+package com.nilsonalves.flink_app.fragments.cards;
 
 import android.view.View;
 

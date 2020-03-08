@@ -39,4 +39,18 @@
     <string name="lista_descript">Pesquise por o que precisar</string>
     <string name="lista_itens">Itens populares</string>
 
+    <!--Atributos da lista de compras -->
+    <string name="lista_icon_add">Icon Add Itens na Lista</string>
+    <string name="lista_icon_help">Icon Dúvidas</string>
+    <string name="lista_leite">Leite</string>
+    <string name="lista_ovos">Ovos</string>
+    <string name="lista_pao">Pão</string>
+    <string name="lista_papel_h">Papel Higiênico</string>
+    <string name="lista_agua">Água</string>
+    <string name="lista_tomate">Tomate</string>
+    <string name="lista_cerverja">Cerveja</string>
+    <string name="lista_cafe">Café</string>
+    <string name="lista_arroz">Arroz</string>
+    <string name="lista_feijao">Feijão</string>
+
 </resources>
