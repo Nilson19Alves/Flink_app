@@ -58,7 +58,7 @@ public class Fragment_Home extends Fragment {
         return new Fragment_Home();
     }
 
-    // Consulta de mercados no Banco de Dados
+    // Consulta de mercados no Banco de Dados jsbdv
     private void lista_home() {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
