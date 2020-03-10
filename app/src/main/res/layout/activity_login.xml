@@ -11,8 +11,7 @@
     <ImageView
         android:contentDescription="@string/app_name"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/DarkOrchid"
+        android:layout_height="180dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         app:srcCompat="@drawable/icon_logo_vertical"
@@ -25,7 +24,7 @@
         android:orientation="vertical"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:paddingTop="100dp">
+        android:paddingTop="50dp">
 
 
         <TextView
@@ -41,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="(87) 9 9856 - 2233"
+            android:hint="(xx) x xxxx - xxxx"
             android:inputType="phone"
             android:textColorHint="@color/Silver"
             android:textColor="@color/DarkOrchid"
@@ -66,6 +65,15 @@
             android:textColorHint="@color/Silver"
             android:textColor="@color/DarkOrchid"
             android:layout_marginBottom="80dp"/>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progressBackgroundTint="@color/DarkOrchid"
+            android:visibility="gone"
+
+            />
 
         <Button
             android:id="@+id/entrar"

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:scrollbarStyle="insideInset"
+    android:paddingTop="5dp"
     tools:ignore="ScrollViewCount">
 
     <GridLayout

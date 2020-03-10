@@ -29,7 +29,7 @@ public class Card_Adapter extends RecyclerView.Adapter<Card_Holder> {
     public void onBindViewHolder(@NonNull Card_Holder holder, int position) {
         holder.title_card.setText(lista_homes.get(position).getTitulo());
         holder.classifica_card.setText(lista_homes.get(position).getClassifica());
-        holder.distancia_card.setText(Integer.toString(lista_homes.get(position).getDistancia()));
+        holder.distancia_card.setText(String.valueOf(lista_homes.get(position).getDistancia()));
         holder.status_card.setText(lista_homes.get(position).getStatus());
         holder.endereco_card.setText(lista_homes.get(position).getEndereco());
 
@@ -39,4 +39,6 @@ public class Card_Adapter extends RecyclerView.Adapter<Card_Holder> {
     public int getItemCount() {
         return lista_homes.size();
     }
+
+
 }

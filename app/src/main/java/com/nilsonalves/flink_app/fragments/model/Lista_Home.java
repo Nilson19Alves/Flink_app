@@ -4,7 +4,7 @@ public class Lista_Home {
     private String titulo;
     private String status;
     private String classifica;
-    private int distancia;
+    private double distancia;
     private String endereco;
 
     public String getTitulo() {
@@ -31,11 +31,11 @@ public class Lista_Home {
         this.classifica = classifica;
     }
 
-    public int getDistancia() {
+    public double getDistancia() {
         return distancia;
     }
 
-    public void setDistancia(int distancia) {
+    public void setDistancia(double distancia) {
         this.distancia = distancia;
     }
 
