@@ -7,14 +7,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.nilsonalves.flink_app.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class Card_Adapter extends RecyclerView.Adapter<Card_Holder> {
     private Context context;
-    private ArrayList<com.nilsonalves.flink_app.fragments.model.Lista_Home> lista_homes;
+    private ArrayList<Lista_Home> lista_homes;
 
-    public Card_Adapter(Context context, ArrayList<com.nilsonalves.flink_app.fragments.model.Lista_Home> lista_homes){
+    public Card_Adapter(Context context, ArrayList<Lista_Home> lista_homes){
         this.context = context;
         this.lista_homes = lista_homes;
     }
@@ -33,6 +34,7 @@ public class Card_Adapter extends RecyclerView.Adapter<Card_Holder> {
         holder.distancia_card.setText(String.valueOf(lista_homes.get(position).getDistancia()));
         holder.status_card.setText(lista_homes.get(position).getStatus());
         holder.endereco_card.setText(lista_homes.get(position).getEndereco());
+        Picasso.get().load(lista_homes.get(position).getURL_logo()).into(holder.logo);
 
     }
 

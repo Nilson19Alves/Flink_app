@@ -1,4 +1,6 @@
-package com.nilsonalves.flink_app.fragments.model;
+package com.nilsonalves.flink_app.fragments.cards;
+
+import android.widget.ImageView;
 
 public class Lista_Home {
     private String titulo;
@@ -6,6 +8,7 @@ public class Lista_Home {
     private String classifica;
     private double distancia;
     private String endereco;
+    private String URL_logo;
 
     public String getTitulo() {
         return titulo;
@@ -47,4 +50,11 @@ public class Lista_Home {
         this.endereco = endereco;
     }
 
+    public String getURL_logo() {
+        return URL_logo;
+    }
+
+    public void setURL_logo(String URL_logo) {
+        this.URL_logo = URL_logo;
+    }
 }

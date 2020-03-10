@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,7 +22,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.nilsonalves.flink_app.R;
 import com.nilsonalves.flink_app.fragments.cards.Card_Adapter;
-import com.nilsonalves.flink_app.fragments.model.Lista_Home;
+import com.nilsonalves.flink_app.fragments.cards.Lista_Home;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -81,6 +83,7 @@ public class Fragment_Home extends Fragment {
                                 listaHome.setDistancia(Double.parseDouble(json_mercado.getString("Distancia")));
                                 listaHome.setStatus(json_mercado.getString("Status"));
                                 listaHome.setEndereco(json_mercado.getString("Localizacao"));
+                                listaHome.setURL_logo(json_mercado.getString("URL_logo"));
 
                                 list.add(listaHome);
                             }
