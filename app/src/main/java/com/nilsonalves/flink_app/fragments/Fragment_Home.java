@@ -4,36 +4,25 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.nilsonalves.flink_app.R;
 import com.nilsonalves.flink_app.fragments.model.Card_Adapter;
 import com.nilsonalves.flink_app.fragments.model.Lista_Home;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Fragment_Home extends Fragment {
     private RecyclerView lista_supermer;
     private Card_Adapter adapter;
-    private final String url = "https://testeflink.000webhostapp.com/Conexao_mysql/Home.php";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,67 +36,51 @@ public class Fragment_Home extends Fragment {
 
         lista_supermer = view.findViewById(R.id.lista_supermer);
         lista_supermer.setLayoutManager(new LinearLayoutManager(getContext()));
-        lista_home();
+        adapter = new Card_Adapter(getContext(), getList());
+        lista_supermer.setAdapter(adapter);
 
         return view;
+    }
+
+    private ArrayList<Lista_Home> getList(){
+        ArrayList<Lista_Home> arrayList = new ArrayList<>();
+
+        Lista_Home listaHome = new Lista_Home();
+        listaHome.setTitulo("Santo Amaro");
+        listaHome.setClassifica("4.6");
+        listaHome.setDistancia(2);
+        listaHome.setStatus("Aberto até as 22");
+        listaHome.setEndereco("Av. Cruz Cabugá, 1933.");
+        arrayList.add(listaHome);
+
+        listaHome = new Lista_Home();
+        listaHome.setTitulo("Boa Vista");
+        listaHome.setClassifica("4.4");
+        listaHome.setDistancia(1);
+        listaHome.setStatus("Aberto até as 18");
+        listaHome.setEndereco("R. da Santa Cruz, 144.");
+        arrayList.add(listaHome);
+
+        listaHome = new Lista_Home();
+        listaHome.setTitulo("Ribeira");
+        listaHome.setClassifica("5.0");
+        listaHome.setDistancia(4);
+        listaHome.setStatus("Aberto até as 18");
+        listaHome.setEndereco("R. Bernardo Vieira de Melo, s/n.");
+        arrayList.add(listaHome);
+
+        listaHome = new Lista_Home();
+        listaHome.setTitulo("Água Fria");
+        listaHome.setClassifica("4.0");
+        listaHome.setDistancia(3);
+        listaHome.setStatus("Aberto até as 18");
+        listaHome.setEndereco("Av. Beberibe, s/n.");
+        arrayList.add(listaHome);
+
+        return arrayList;
     }
 
     public static Fragment_Home newInstance(){
         return new Fragment_Home();
     }
-
-    // Consulta de mercados no Banco de Dados
-    private void lista_home() {
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            System.out.println(jsonObject.getString("Lista"));
-                            JSONArray jsonArray = jsonObject.getJSONArray("Lista");
-                            System.out.println(jsonArray.getString(0));
-                            System.out.println(jsonArray.length());
-
-                            ArrayList<Lista_Home> list = new ArrayList<>();
-
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject json_mercado = jsonArray.getJSONObject(i);
-
-                                Lista_Home listaHome = new Lista_Home();
-                                listaHome.setTitulo(json_mercado.getString("Nome"));
-                                listaHome.setClassifica(json_mercado.getString("Classificacao"));
-                                listaHome.setDistancia(Double.parseDouble(json_mercado.getString("Distancia")));
-                                listaHome.setStatus(json_mercado.getString("Status"));
-                                listaHome.setEndereco(json_mercado.getString("Localizacao"));
-
-                                list.add(listaHome);
-                            }
-                            System.out.println(list.get(1).getTitulo());
-                            adapter = new Card_Adapter(getContext(), list);
-                            lista_supermer.setAdapter(adapter);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(), "Problema ao busca mercados!", Toast.LENGTH_LONG).show();
-                    }
-                })
-        {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                return super.getParams();
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(stringRequest);
-    }
-
 }

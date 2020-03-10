@@ -1,10 +1,11 @@
-package com.nilsonalves.flink_app.fragments.model;
+package com.nilsonalves.flink_app.fragments.cards;
 
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,13 +13,9 @@ import com.nilsonalves.flink_app.Flink_qrCode;
 import com.nilsonalves.flink_app.R;
 
 public class Card_Holder extends RecyclerView.ViewHolder implements onClickCard{
-    TextView distancia_card;
-    TextView title_card;
-    TextView classifica_card;
-    TextView status_card;
-    TextView endereco_card;
-    ImageButton localiza_mercado;
-    ImageButton btn_code;
+    TextView title_card, distancia_card, classifica_card, endereco_card, status_card;
+    ImageButton btn_code, localiza_mercado;
+    ImageView logo;
     onClickCard onClickCard;
     Context context;
 
@@ -26,9 +23,7 @@ public class Card_Holder extends RecyclerView.ViewHolder implements onClickCard{
         super(itemView);
 
         findIds(itemView);
-
         //itemView.setOnClickListener((View.OnClickListener) this);
-
     }
 
     //Bucando Identificadores
@@ -40,7 +35,7 @@ public class Card_Holder extends RecyclerView.ViewHolder implements onClickCard{
         endereco_card = itemView.findViewById(R.id.endereco_card);
         localiza_mercado = itemView.findViewById(R.id.localiza_mercado);
         btn_code = itemView.findViewById(R.id.btn_code);
-
+        logo = itemView.findViewById(R.id.logo);
     }
 
     //Acesso ao mapa do mercado
@@ -67,10 +62,11 @@ public class Card_Holder extends RecyclerView.ViewHolder implements onClickCard{
 
     @Override
     public void onClickCard(View view, int position) {
-        this.onClickCard.onClickCard(view,getLayoutPosition());
+        this.onClickCard(view,position);
     }
 
     public void setItemClick(AdapterView.OnItemClickListener click){
-        this.onClickCard = (com.nilsonalves.flink_app.fragments.model.onClickCard) click;
+        this.onClickCard = (com.nilsonalves.flink_app.fragments.cards.onClickCard) click;
     }
+
 }
