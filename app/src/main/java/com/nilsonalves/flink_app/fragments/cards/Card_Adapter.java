@@ -1,4 +1,4 @@
-package com.nilsonalves.flink_app.fragments.model;
+package com.nilsonalves.flink_app.fragments.cards;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,13 +7,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.nilsonalves.flink_app.R;
+
 import java.util.ArrayList;
 
 public class Card_Adapter extends RecyclerView.Adapter<Card_Holder> {
     private Context context;
-    private ArrayList<Lista_Home> lista_homes;
+    private ArrayList<com.nilsonalves.flink_app.fragments.model.Lista_Home> lista_homes;
 
-    public Card_Adapter(Context context, ArrayList<Lista_Home> lista_homes){
+    public Card_Adapter(Context context, ArrayList<com.nilsonalves.flink_app.fragments.model.Lista_Home> lista_homes){
         this.context = context;
         this.lista_homes = lista_homes;
     }
@@ -29,7 +30,7 @@ public class Card_Adapter extends RecyclerView.Adapter<Card_Holder> {
     public void onBindViewHolder(@NonNull Card_Holder holder, int position) {
         holder.title_card.setText(lista_homes.get(position).getTitulo());
         holder.classifica_card.setText(lista_homes.get(position).getClassifica());
-        holder.distancia_card.setText(Integer.toString(lista_homes.get(position).getDistancia()));
+        holder.distancia_card.setText(String.valueOf(lista_homes.get(position).getDistancia()));
         holder.status_card.setText(lista_homes.get(position).getStatus());
         holder.endereco_card.setText(lista_homes.get(position).getEndereco());
 
