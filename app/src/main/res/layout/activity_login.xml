@@ -26,45 +26,37 @@
         android:paddingRight="30dp"
         android:paddingTop="50dp">
 
-
-        <TextView
-            android:id="@+id/textView"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Telefone"
-            android:textColor="@color/DarkOrchid"
-            android:textSize="18sp" />
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp">
 
-        <EditText
-            android:id="@+id/telefone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="(xx) x xxxx - xxxx"
-            android:inputType="phone"
-            android:textColorHint="@color/Silver"
-            android:textColor="@color/DarkOrchid"
-            android:layout_marginBottom="50dp"/>
+            <com.santalu.maskedittext.MaskEditText
+                android:id="@+id/input_phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="phone"
+                android:hint="Telefone"
+                android:textColor="@color/DarkOrchid"
+                app:met_mask="+55 (##) # #### - ####"
+                />
 
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Senha"
-            android:textColor="@color/DarkOrchid"
-            android:textSize="18sp" />
+         <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="60dp">
+                <EditText
+                    android:id="@+id/input_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Senha"
+                    android:inputType="textPassword"
+                    android:textColor="@color/DarkOrchid"
+                    />
 
-        <EditText
-            android:id="@+id/senha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="********"
-            android:inputType="textPassword"
-            android:textColorHint="@color/Silver"
-            android:textColor="@color/DarkOrchid"
-            android:layout_marginBottom="80dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
         <ProgressBar
             android:id="@+id/progress"

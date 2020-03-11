@@ -1,7 +1,5 @@
 package com.nilsonalves.flink_app.fragments.cards;
 
-import android.widget.ImageView;
-
 public class Lista_Home {
     private String titulo;
     private String status;

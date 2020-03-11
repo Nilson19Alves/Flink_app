@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,7 +22,6 @@ import com.android.volley.toolbox.Volley;
 import com.nilsonalves.flink_app.R;
 import com.nilsonalves.flink_app.fragments.cards.Card_Adapter;
 import com.nilsonalves.flink_app.fragments.cards.Lista_Home;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,7 +56,7 @@ public class Fragment_Home extends Fragment {
         return new Fragment_Home();
     }
 
-    // Consulta de mercados no Banco de Dados jsbdv
+    // Consulta de mercados no Banco de Dados
     private void lista_home() {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

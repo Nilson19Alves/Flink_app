@@ -4,18 +4,50 @@ import android.content.Intent;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.nilsonalves.flink_app.Rede.Internet;
 import com.nilsonalves.flink_app.jdbc.Connect_Remot;
 
 public class Flink_Splash extends AppCompatActivity {
+
+    private TextView txt_verificRede;
+    private ProgressBar progress_splash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        //Connect_Remot.connection();
+        txt_verificRede = findViewById(R.id.txt_verificRede);
+        progress_splash = findViewById(R.id.progress_splash);
 
+        boolean rede = Internet.isConnected(getApplicationContext());
+
+        if (rede) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    isConnect();
+                }
+            }, 1000);
+
+        } else {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    notConnect();
+                }
+            }, 1000);
+        }
+
+    }
+
+    private void isConnect() {
+        txt_verificRede.setText("Acesso a Internet");
+        progress_splash.setVisibility(View.GONE);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -23,6 +55,32 @@ public class Flink_Splash extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 2000);
+        }, 1000);
+    }
+
+    private void notConnect() {
+        txt_verificRede.setText("Sem acesso a Internet. Repetir");
+        progress_splash.setVisibility(View.GONE);
+        txt_verificRede.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progress_splash.setVisibility(View.VISIBLE);
+                txt_verificRede.setText("Verificando Rede...");
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        boolean repet = Internet.isConnected(getApplicationContext());
+                        if (repet) {
+                            isConnect();
+                        } else {
+                            txt_verificRede.setText("Sem acesso a Internet. Repetir");
+                            progress_splash.setVisibility(View.GONE);
+                        }
+
+                    }
+                }, 1000);
+
+            }
+        });
     }
 }

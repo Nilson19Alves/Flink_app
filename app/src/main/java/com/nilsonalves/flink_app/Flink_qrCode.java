@@ -34,7 +34,7 @@ public class Flink_qrCode extends Activity implements ZXingScannerView.ResultHan
 
     @Override
     public void handleResult(Result rawResult) {
-        Flink_Home.qrCode_result.setText(rawResult.getText());
+        //Flink_Home.qrCode_result.setText(rawResult.getText());
         onBackPressed();
         finish();
     }

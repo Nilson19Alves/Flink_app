@@ -26,8 +26,8 @@ import java.util.Map;
 
 public class Flink_Login extends AppCompatActivity {
 
-    private EditText telefone;
-    private EditText senha;
+    private EditText phone;
+    private EditText password;
     private Button entrar;
     private ProgressBar progress;
     private String url = "https://testeflink.000webhostapp.com/Conexao_mysql/Login.php";
@@ -44,8 +44,8 @@ public class Flink_Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String fone = telefone.getText().toString().trim();
-                String password = senha.getText().toString().trim();
+                String fone = phone.getText().toString().trim();
+                String password = Flink_Login.this.password.getText().toString().trim();
 
                 if (!fone.isEmpty()) {
                     if (!password.isEmpty()) {
@@ -53,10 +53,10 @@ public class Flink_Login extends AppCompatActivity {
                         entrar.setVisibility(View.INVISIBLE);
                         login(fone, password);
                     } else {
-                        senha.setError("********");
+                        Flink_Login.this.password.setError("Senha");
                     }
                 } else {
-                    telefone.setError("(xx) x xxxx - xxxx");
+                    phone.setError("Telefone");
                 }
             }
         });
@@ -64,8 +64,8 @@ public class Flink_Login extends AppCompatActivity {
 
     // Coleta de componentes por ID
     private void coletar_ID() {
-        telefone = findViewById(R.id.telefone);
-        senha = findViewById(R.id.senha);
+        phone = findViewById(R.id.input_phone);
+        password = findViewById(R.id.input_password);
         entrar = findViewById(R.id.entrar);
         progress = findViewById(R.id.progress);
     }
@@ -90,8 +90,8 @@ public class Flink_Login extends AppCompatActivity {
                                 String passw = jsonObject.getString("Senha").trim();
 
                                 // Valores Inseridos
-                                String fone = telefone.getText().toString().trim();
-                                String password = senha.getText().toString().trim();
+                                String fone = phone.getText().toString().trim();
+                                String password = Flink_Login.this.password.getText().toString().trim();
 
                                 if (fone.equalsIgnoreCase(tel) && password.equalsIgnoreCase(passw)) {
                                     progress.setVisibility(View.GONE);
@@ -109,18 +109,19 @@ public class Flink_Login extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Olá " + nome + "\nParece que sua senha está errada!", Toast.LENGTH_LONG).show();
                                     progress.setVisibility(View.GONE);
                                     entrar.setVisibility(View.VISIBLE);
-                                    senha.setError("********");
-                                    senha.getText().clear();
+                                    Flink_Login.this.password.setError("Senha");
+                                    Flink_Login.this.password.getText().clear();
                                 }
 
                             } else {
                                 Toast.makeText(getApplicationContext(), "Nenhum Usuário Encontrado", Toast.LENGTH_LONG).show();
                                 progress.setVisibility(View.GONE);
                                 entrar.setVisibility(View.VISIBLE);
-                                telefone.setError("(xx) x xxxx - xxxx");
-                                telefone.getText().clear();
-                                senha.setError("********");
-                                senha.getText().clear();
+                                phone.setError("Telefone");
+                                phone.getText().clear();
+                                phone.requestFocus();
+                                Flink_Login.this.password.setError("Senha");
+                                Flink_Login.this.password.getText().clear();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

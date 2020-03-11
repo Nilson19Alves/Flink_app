@@ -1,6 +1,10 @@
 package com.nilsonalves.flink_app.fragments.cards;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +39,7 @@ public class Card_Adapter extends RecyclerView.Adapter<Card_Holder> {
         holder.status_card.setText(lista_homes.get(position).getStatus());
         holder.endereco_card.setText(lista_homes.get(position).getEndereco());
         Picasso.get().load(lista_homes.get(position).getURL_logo()).into(holder.logo);
+//        holder.itemView.setBackgroundColor(Color.rgb(248,248,248));
 
     }
 

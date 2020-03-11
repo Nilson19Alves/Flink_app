@@ -7,12 +7,15 @@
     android:orientation="vertical"
     android:scrollbarStyle="insideInset"
     android:paddingTop="5dp"
+    android:background="@color/SilverWhite"
     tools:ignore="ScrollViewCount">
 
     <GridLayout
-        android:padding="1dp"
-        android:layout_gravity="center_vertical"
-        android:layout_width="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -26,14 +29,13 @@
             android:contentDescription="@string/img_barra_superior"
             android:layout_width="258dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-50dp"
             android:src="@drawable/icon_barra_superior"/>
 
         <ImageView
             android:id="@+id/btn_code"
             android:contentDescription="@string/img_qr_code"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:src="@drawable/icons8_qr_code_26px"/>
 
     </GridLayout>
@@ -44,25 +46,35 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:text="@string/home_title"
-        android:textSize="24sp"
-        android:padding="10dp"
+        android:textSize="20sp"
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="5dp"
         android:textColor="@color/Black"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
     <TextView
-        android:padding="10dp"
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:text="@string/home_sub_title"
         android:textColor="@color/Black"
-        android:textSize="18sp" />
+        android:textSize="16sp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lista_supermer"
-        android:layout_gravity="center"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp"/>
+        android:layout_marginBottom="50dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lista_supermer"
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/SilverWhite"/>
+
+    </ScrollView>
 
 </LinearLayout>

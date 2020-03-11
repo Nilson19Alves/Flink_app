@@ -74,4 +74,8 @@ public class Flink_Access extends AppCompatActivity implements BottomNavigationV
         transaction.commit();
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

@@ -18,12 +18,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:backgroundTint="@color/White"
+            app:backgroundTint="@color/SilverWhite"
             app:itemTextColor="@color/OrangeLight"
             app:itemIconTint="@color/OrangeLight"
             app:itemIconSize="@dimen/activity_horizontal_margin"
             style="@style/Widget.Design.BottomNavigationView"
-            app:menu="@menu/bottom_navegation"/>
+            app:menu="@menu/bottom_navegation"
+            />
 
     </FrameLayout>
 
