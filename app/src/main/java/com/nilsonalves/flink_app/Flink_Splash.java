@@ -11,9 +11,6 @@ import android.widget.TextView;
 import com.nilsonalves.flink_app.Rede.Internet;
 import com.nilsonalves.flink_app.Util.SessionManager;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Flink_Splash extends AppCompatActivity {
 
     private TextView txt_verificRede;
@@ -124,4 +121,5 @@ public class Flink_Splash extends AppCompatActivity {
             }
         });
     }
+
 }
