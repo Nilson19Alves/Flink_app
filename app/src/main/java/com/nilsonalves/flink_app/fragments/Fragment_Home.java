@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.nilsonalves.flink_app.R;
+import com.nilsonalves.flink_app.Util.SessionManager;
 import com.nilsonalves.flink_app.fragments.cards.Card_Adapter;
 import com.nilsonalves.flink_app.fragments.cards.Lista_Home;
 
@@ -28,11 +30,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Fragment_Home extends Fragment {
     private RecyclerView lista_supermer;
     private Card_Adapter adapter;
+    private TextView title_home_user;
+    SessionManager sessionManager;
     private final String url = "https://testeflink.000webhostapp.com/Conexao_mysql/Home.php";
 
     @Override
@@ -45,9 +50,15 @@ public class Fragment_Home extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        title_home_user = view.findViewById(R.id.title_home_user);
         lista_supermer = view.findViewById(R.id.lista_supermer);
         lista_supermer.setLayoutManager(new LinearLayoutManager(getContext()));
         lista_home();
+
+        sessionManager = new SessionManager(getContext());
+        HashMap<String, String> user = sessionManager.getUserDetail();
+        String nome = "OI, " + user.get(sessionManager.NOME) + "!";
+        title_home_user.setText(nome);
 
         return view;
     }

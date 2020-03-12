@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.nilsonalves.flink_app.Util.SessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,11 +32,14 @@ public class Flink_Login extends AppCompatActivity {
     private Button entrar;
     private ProgressBar progress;
     private String url = "https://testeflink.000webhostapp.com/Conexao_mysql/Login.php";
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        sessionManager = new SessionManager(this);
 
         coletar_ID();
 
@@ -96,6 +100,8 @@ public class Flink_Login extends AppCompatActivity {
                                 if (fone.equalsIgnoreCase(tel) && password.equalsIgnoreCase(passw)) {
                                     progress.setVisibility(View.GONE);
                                     entrar.setVisibility(View.VISIBLE);
+
+                                    sessionManager.creatSession(nome, tel, passw);
 
                                     Intent intent = new Intent(getApplicationContext(), Flink_Access.class);
                                     Bundle bundle = new Bundle();
