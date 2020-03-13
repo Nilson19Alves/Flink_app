@@ -1,5 +1,6 @@
 package com.nilsonalves.flink_app.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.nilsonalves.flink_app.Flink_Lista;
 import com.nilsonalves.flink_app.R;
 import com.nilsonalves.flink_app.Util.SessionManager;
 import com.nilsonalves.flink_app.fragments.cards.Card_Adapter;
@@ -31,11 +33,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Fragment_Home extends Fragment {
     private RecyclerView lista_supermer;
     private Card_Adapter adapter;
+    private ArrayList<Lista_Home> listaGetSet = new ArrayList<>();
     private TextView title_home_user;
     SessionManager sessionManager;
     private final String url = "https://testeflink.000webhostapp.com/Conexao_mysql/Home.php";
@@ -59,6 +63,8 @@ public class Fragment_Home extends Fragment {
         HashMap<String, String> user = sessionManager.getUserDetail();
         String nome = "OI, " + user.get(sessionManager.NOME) + "!";
         title_home_user.setText(nome);
+
+
 
         return view;
     }
@@ -121,5 +127,4 @@ public class Fragment_Home extends Fragment {
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
-
 }

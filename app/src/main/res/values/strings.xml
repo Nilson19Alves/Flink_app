@@ -27,6 +27,7 @@
     <string name="home_card_distancia">Km distância</string>
     <string name="home_card_status">Aberto até às 21:00</string>
     <string name="home_card_endereco">R. Cap. Rebelinha, 440 - Pina</string>
+    <string name="home_card_mapa">Mapa do Mercado</string>
 
     <!-- Descriptions - ImagemView -->
     <string name="img_qr_code">QR Code</string>
