@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,6 +44,7 @@ public class Card_Adapter extends RecyclerView.Adapter<Card_Adapter.ViewHolder> 
         holder.setOnClickCardListener(new OnClickCard() {
             @Override
             public void onClickCad(View view, int position) {
+
                 Toast.makeText(view.getContext(),"Posição "+ position, Toast.LENGTH_SHORT).show();
             }
         });
