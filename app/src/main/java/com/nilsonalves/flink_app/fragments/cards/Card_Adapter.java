@@ -11,8 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.nilsonalves.flink_app.Flink_Lista;
 import com.nilsonalves.flink_app.R;
+import com.nilsonalves.flink_app.fragments.Fragment_Lista;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
@@ -44,7 +46,7 @@ public class Card_Adapter extends RecyclerView.Adapter<Card_Adapter.ViewHolder> 
         holder.card_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent lista = new Intent(context,Flink_Lista.class);
+                Intent lista = new Intent(context, Flink_Lista.class);
                 context.startActivity(lista);
             }
         });
