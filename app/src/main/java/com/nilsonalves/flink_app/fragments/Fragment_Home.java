@@ -5,15 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,26 +20,23 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.nilsonalves.flink_app.Flink_Lista;
+import com.nilsonalves.flink_app.Flink_qrCode;
 import com.nilsonalves.flink_app.R;
 import com.nilsonalves.flink_app.Util.SessionManager;
 import com.nilsonalves.flink_app.fragments.cards.Card_Adapter;
 import com.nilsonalves.flink_app.fragments.cards.Lista_Home;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Fragment_Home extends Fragment {
     private RecyclerView lista_supermer;
     private Card_Adapter adapter;
-    private ArrayList<Lista_Home> listaGetSet = new ArrayList<>();
     private TextView title_home_user;
+    private ImageButton btn_code;
     SessionManager sessionManager;
     private final String url = "https://testeflink.000webhostapp.com/Conexao_mysql/Home.php";
 
@@ -56,15 +52,17 @@ public class Fragment_Home extends Fragment {
 
         title_home_user = view.findViewById(R.id.title_home_user);
         lista_supermer = view.findViewById(R.id.lista_supermer);
+        btn_code = view.findViewById(R.id.btn_code);
+
         lista_supermer.setLayoutManager(new LinearLayoutManager(getContext()));
         lista_home();
+
+        ClickQRBottom();
 
         sessionManager = new SessionManager(getContext());
         HashMap<String, String> user = sessionManager.getUserDetail();
         String nome = "OI, " + user.get(sessionManager.NOME) + "!";
         title_home_user.setText(nome);
-
-
 
         return view;
     }
@@ -127,4 +125,16 @@ public class Fragment_Home extends Fragment {
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
+
+    //Botão QR Code fragment home
+    private void ClickQRBottom(){
+        btn_code.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent qr = new Intent(getContext(), Flink_qrCode.class);
+                startActivity(qr);
+            }
+        });
+    }
+
 }
