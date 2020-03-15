@@ -1,6 +1,8 @@
 package com.nilsonalves.flink_app;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.nilsonalves.flink_app.Rede.Internet;
 import com.nilsonalves.flink_app.Util.SessionManager;
 
@@ -26,6 +29,7 @@ public class Flink_Splash extends AppCompatActivity {
         progress_splash = findViewById(R.id.progress_splash);
 
         inspect();
+
     }
 
     private void inspect() {
@@ -76,9 +80,32 @@ public class Flink_Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(), Flink_Access.class);
-                startActivity(intent);
-                finish();
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(Flink_Splash.this);
+
+
+
+                builder.setPositiveButton("Estou no Mercado", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                builder.setPositiveButtonIcon(getDrawable(R.drawable.icons8_qr_code_26px));
+
+                builder.setNegativeButton("Fazer uma Lista", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(getApplicationContext(), Flink_Access.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                builder.setNegativeButtonIcon(getDrawable(R.drawable.icons8_list_32px));
+
+
+
+                builder.show();
+
             }
         }, 1000);
     }
