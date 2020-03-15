@@ -102,7 +102,7 @@ public class Flink_Splash extends AppCompatActivity {
                 });
                 builder.setNegativeButtonIcon(getDrawable(R.drawable.icons8_list_32px));
 
-
+                builder.setBackground(getResources().getDrawable(R.color.White));
 
                 builder.show();
 
