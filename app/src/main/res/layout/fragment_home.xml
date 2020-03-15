@@ -10,31 +10,40 @@
     tools:ignore="ScrollViewCount">
 
     <GridLayout
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="2dp">
 
-        <ImageView
+        <ImageButton
+            style="@style/ShapeAppearance.MaterialComponents.SmallComponent"
             android:id="@+id/btn_faq"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:contentDescription="@string/img_help"
-            android:src="@drawable/icon_help"/>
-
-        <ImageView
-            android:contentDescription="@string/img_barra_superior"
-            android:layout_width="258dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_barra_superior"/>
+            android:layout_gravity="left"
+            android:background="@color/SilverWhite"
+            android:contentDescription="@string/img_help"
+            android:src="@drawable/icon_interrogacao_48" />
 
         <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="-4dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/img_barra_superior"
+            android:src="@drawable/icon_barra_superior" />
+
+        <ImageButton
             android:id="@+id/btn_code"
-            android:contentDescription="@string/img_qr_code"
-            android:layout_width="50dp"
+            style="@style/ShapeAppearance.MaterialComponents.SmallComponent"
+            android:layout_width="60dp"
             android:layout_height="50dp"
-            android:src="@drawable/icons8_qr_code_26px"/>
+            android:layout_gravity="right"
+            android:background="@color/SilverWhite"
+            android:contentDescription="@string/img_qr_code"
+            android:src="@drawable/icons_qr_40" />
 
     </GridLayout>
 

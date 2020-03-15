@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- pressed -->
-    <item android:drawable="@drawable/icon_help" android:state_pressed="true"/>
+    <item
+        android:drawable="@drawable/icon_mapa_orange_card_48"
+        android:state_pressed="true"/>
 
     <!-- focused -->
-    <item android:drawable="@drawable/icon_help" android:state_focused="true"/>
+    <item
+        android:drawable="@drawable/icon_mapa_orange_card_48"
+        android:state_focused="true"/>
 
     <!-- default -->
-    <item android:drawable="@drawable/icon_help_black"/>
+    <item android:drawable="@drawable/icon_mapa_purple_card_48" />
+
 
 </selector>

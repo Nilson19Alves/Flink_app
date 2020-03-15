@@ -54,4 +54,8 @@
     <string name="lista_arroz">Arroz</string>
     <string name="lista_feijao">Feijão</string>
 
+    <!--  -->
+    <string name="feed_card_title">você está em</string>
+    <string name="feed_card_valor">seu total:</string>
+
 </resources>
