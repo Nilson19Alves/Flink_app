@@ -23,8 +23,8 @@ import com.android.volley.toolbox.Volley;
 import com.nilsonalves.flink_app.Flink_qrCode;
 import com.nilsonalves.flink_app.R;
 import com.nilsonalves.flink_app.Util.SessionManager;
-import com.nilsonalves.flink_app.fragments.cards.Card_Adapter;
-import com.nilsonalves.flink_app.fragments.cards.Lista_Home;
+import com.nilsonalves.flink_app.fragments.card_home.Home_Adapter;
+import com.nilsonalves.flink_app.fragments.card_home.Home_Modelo;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +34,7 @@ import java.util.Map;
 
 public class Fragment_Home extends Fragment {
     private RecyclerView lista_supermer;
-    private Card_Adapter adapter;
+    private Home_Adapter adapter;
     private TextView title_home_user;
     private ImageButton btn_code;
     SessionManager sessionManager;
@@ -85,12 +85,12 @@ public class Fragment_Home extends Fragment {
                             System.out.println(jsonArray.getString(0));
                             System.out.println(jsonArray.length());
 
-                            ArrayList<Lista_Home> list = new ArrayList<>();
+                            ArrayList<Home_Modelo> list = new ArrayList<>();
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject json_mercado = jsonArray.getJSONObject(i);
 
-                                Lista_Home listaHome = new Lista_Home();
+                                Home_Modelo listaHome = new Home_Modelo();
                                 listaHome.setTitulo(json_mercado.getString("Nome"));
                                 listaHome.setClassifica(json_mercado.getString("Classificacao"));
                                 listaHome.setDistancia(Double.parseDouble(json_mercado.getString("Distancia")));
@@ -101,7 +101,7 @@ public class Fragment_Home extends Fragment {
                                 list.add(listaHome);
                             }
                             System.out.println(list.get(1).getTitulo());
-                            adapter = new Card_Adapter(getContext(), list);
+                            adapter = new Home_Adapter(getContext(), list);
                             lista_supermer.setAdapter(adapter);
 
                         } catch (JSONException e) {

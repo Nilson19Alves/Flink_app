@@ -1,4 +1,4 @@
-package com.nilsonalves.flink_app.fragments.cards;
+package com.nilsonalves.flink_app.fragments.card_home;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,17 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.nilsonalves.flink_app.Flink_Lista;
 import com.nilsonalves.flink_app.R;
-import com.nilsonalves.flink_app.fragments.Fragment_Lista;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
-public class Card_Adapter extends RecyclerView.Adapter<Card_Adapter.ViewHolder> {
+public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> {
     private Context context;
-    private List<Lista_Home> lista_homes;
+    private List<Home_Modelo> home_modelos;
 
-    public Card_Adapter(Context context, List<Lista_Home> list){
+    public Home_Adapter(Context context, List<Home_Modelo> list){
         this.context = context;
-        this.lista_homes = list;
+        this.home_modelos = list;
     }
 
     @NonNull
@@ -37,12 +36,12 @@ public class Card_Adapter extends RecyclerView.Adapter<Card_Adapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         //holder.itemView.setBackgroundColor(Color.rgb(248,248,248));
-        Picasso.get().load(lista_homes.get(position).getURL_logo()).into(holder.logo);
-        holder.title_card.setText(lista_homes.get(position).getTitulo());
-        holder.classifica_card.setText(lista_homes.get(position).getClassifica());
-        holder.distancia_card.setText(String.valueOf(lista_homes.get(position).getDistancia()));
-        holder.status_card.setText(lista_homes.get(position).getStatus());
-        holder.endereco_card.setText(lista_homes.get(position).getEndereco());
+        Picasso.get().load(home_modelos.get(position).getURL_logo()).into(holder.logo);
+        holder.title_card.setText(home_modelos.get(position).getTitulo());
+        holder.classifica_card.setText(home_modelos.get(position).getClassifica());
+        holder.distancia_card.setText(String.valueOf(home_modelos.get(position).getDistancia()));
+        holder.status_card.setText(home_modelos.get(position).getStatus());
+        holder.endereco_card.setText(home_modelos.get(position).getEndereco());
         holder.card_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +53,7 @@ public class Card_Adapter extends RecyclerView.Adapter<Card_Adapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return lista_homes.size();
+        return home_modelos.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -66,6 +65,11 @@ public class Card_Adapter extends RecyclerView.Adapter<Card_Adapter.ViewHolder> 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            buscaId();
+
+        }
+
+        private void buscaId(){
             title_card = itemView.findViewById(R.id.title_card);
             classifica_card = itemView.findViewById(R.id.classifica_card);
             distancia_card = itemView.findViewById(R.id.distancia_card);
@@ -75,7 +79,7 @@ public class Card_Adapter extends RecyclerView.Adapter<Card_Adapter.ViewHolder> 
             btn_code = itemView.findViewById(R.id.btn_code);
             logo = itemView.findViewById(R.id.logo);
             card_card = itemView.findViewById(R.id.card_card);
-
         }
+
     }
 }

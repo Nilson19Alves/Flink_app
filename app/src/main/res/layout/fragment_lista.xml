@@ -47,11 +47,14 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardStatusFeed"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/White"
-        android:elevation="10dp"
-        android:padding="10dp"
+        app:cardElevation="8dp"
+        app:contentPadding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center_horizontal"
         app:cardCornerRadius="10dp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true"
@@ -59,81 +62,83 @@
         tools:layout_editor_absoluteX="24dp"
         tools:layout_editor_absoluteY="65dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <GridLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="2dp"
             tools:ignore="UselessLeaf">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="2dp"
-                tools:layout_editor_absoluteY="2dp">
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="21dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_localizacao_48"/>
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/icon_localizacao_48"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginEnd="98dp"
-                    android:layout_marginBottom="3dp"
                     android:fontFamily="@font/montserrat"
                     android:text="@string/feed_card_title"
                     android:textColor="@color/OrangeLight"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toTopOf="@+id/textView"
-                    app:layout_constraintEnd_toStartOf="@+id/divider2"
-                    app:layout_constraintStart_toEndOf="@+id/imageView2"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="10sp"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/nomeMercado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginEnd="100dp"
                     android:fontFamily="@font/montserrat"
                     android:text="VerdFruit"
                     android:textColor="@color/Silver"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/divider2"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/imageView2"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteY="25dp" />
+                    tools:ignore="MissingConstraints" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="2dp"
+                android:layout_height="46dp"
+                android:background="@color/Black"
+                android:backgroundTint="@color/Silver"
+                tools:layout_editor_absoluteX="251dp"
+                tools:layout_editor_absoluteY="2dp" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:padding="5dp"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
                     android:text="@string/feed_card_valor"
                     android:textColor="@color/Silver"
-                    android:textSize="12sp"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="281dp"
-                    tools:layout_editor_absoluteY="3dp" />
+                    android:textSize="10sp"
+                    tools:ignore="MissingConstraints" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/totalPagar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
@@ -141,23 +146,126 @@
                     android:textColor="@color/BlueViolet"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteY="25dp" />
+                    tools:ignore="MissingConstraints" />
 
-                <View
-                    android:id="@+id/divider2"
-                    android:layout_width="1dp"
-                    android:layout_height="46dp"
-                    android:background="?android:attr/listDivider"
-                    android:backgroundTint="@color/Silver"
-                    tools:layout_editor_absoluteX="251dp"
-                    tools:layout_editor_absoluteY="2dp" />
+            </LinearLayout>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </GridLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_lista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.core.widget.NestedScrollView>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessLeaf">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnRetornarLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="top"
+            android:background="@color/BlueViolet" />
+
+        <LinearLayout
+            android:layout_gravity="right"
+            android:orientation="vertical"
+            android:layout_marginRight="-22dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/scannerProduto"
+                style="@style/Widget.MaterialComponents.CardView"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_gravity="right"
+                app:cardBackgroundColor="@color/BlueViolet"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_gravity="top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/feed_card_scanear_produto"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/White"
+                    android:textAlignment="center"
+                    android:textSize="10sp"/>
+
+                    <LinearLayout
+                        android:padding="2dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        tools:ignore="AdapterViewChildren">
+
+                        <ImageView
+                            android:layout_gravity="bottom"
+                            android:contentDescription="@string/app_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_codigo_barras_32"/>
+
+                    </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/rotaMercado"
+                style="@style/Widget.MaterialComponents.CardView"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_gravity="right"
+                app:cardBackgroundColor="@color/BlueViolet"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/feed_card_rota_mercado"
+                    android:fontFamily="@font/montserrat"
+                    android:textAlignment="center"
+                    android:textColor="@color/White"
+                    android:textSize="10sp"/>
+
+                <LinearLayout
+                    android:padding="2dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_gravity="bottom"
+                        android:contentDescription="@string/app_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_rota_mercado_32"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </GridLayout>
 
 </LinearLayout>

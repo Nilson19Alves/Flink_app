@@ -1,6 +1,6 @@
-package com.nilsonalves.flink_app.fragments.cards;
+package com.nilsonalves.flink_app.fragments.card_home;
 
-public class Lista_Home {
+public class Home_Modelo {
     private String titulo;
     private String status;
     private String classifica;

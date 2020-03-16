@@ -54,8 +54,12 @@
     <string name="lista_arroz">Arroz</string>
     <string name="lista_feijao">Feijão</string>
 
-    <!--  -->
+    <!-- Activity Feed -->
     <string name="feed_card_title">você está em</string>
     <string name="feed_card_valor">seu total:</string>
+    <string name="feed_card_btn_float">Retornar à lista</string>
+    <string name="feed_card_scanear_produto">Scanear\nProduto</string>
+    <string name="feed_card_rota_mercado">Rota no\nMercado</string>
+    <string name="feed_card_descricao_produto">Sorvete de Açaí com Guaraná</string>
 
 </resources>
