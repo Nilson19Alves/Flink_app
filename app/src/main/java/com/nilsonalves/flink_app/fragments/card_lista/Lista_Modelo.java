@@ -4,7 +4,7 @@ public class Lista_Modelo {
     private String descricaoProduto;
     private Integer qtdAddCarrinho;
     private Integer qtdAddFavorito;
-    private Integer valorproduto;
+    private double valorproduto;
 
     public String getDescricaoProduto() {
         return descricaoProduto;
@@ -30,11 +30,11 @@ public class Lista_Modelo {
         this.qtdAddFavorito = qtdAddFavorito;
     }
 
-    public Integer getValorproduto() {
+    public double getValorproduto() {
         return valorproduto;
     }
 
-    public void setValorproduto(Integer valorproduto) {
+    public void setValorproduto(double valorproduto) {
         this.valorproduto = valorproduto;
     }
 }
