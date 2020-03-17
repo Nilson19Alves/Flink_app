@@ -19,6 +19,7 @@
         android:textAlignment="center"/>
 
     <androidx.cardview.widget.CardView
+        android:foreground="?android:attr/selectableItemBackground"
         android:id="@+id/card_lista"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -39,7 +40,8 @@
                 android:orientation="vertical"
                 tools:ignore="UseCompoundDrawables">
 
-                <ImageView
+                <ImageButton
+                    android:id="@+id/addCarrinho"
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@string/app_name"
                     android:layout_width="wrap_content"
@@ -47,6 +49,7 @@
                     android:src="@drawable/icon_carrinho_24"/>
 
                 <TextView
+                    android:id="@+id/qtdAddCarrinho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="18"
@@ -69,7 +72,8 @@
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraints,UseCompoundDrawables">
 
-                <ImageView
+                <ImageButton
+                    android:id="@+id/addFavorito"
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@string/app_name"
                     android:layout_width="wrap_content"
@@ -77,6 +81,7 @@
                     android:src="@drawable/icon_favorito_color_24"/>
 
                 <TextView
+                    android:id="@+id/qtdAddFavorito"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="18"
@@ -99,6 +104,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardValorProduto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -109,6 +115,7 @@
         app:contentPadding="4dp">
 
         <TextView
+            android:id="@+id/valorproduto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"

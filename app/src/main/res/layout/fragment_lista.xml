@@ -176,7 +176,8 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:layout_gravity="top"
-            android:background="@color/BlueViolet" />
+            android:src="@drawable/icon_carrinho_24"
+            android:background="@color/BlueViolet"/>
 
         <LinearLayout
             android:layout_gravity="right"

@@ -1,50 +1,40 @@
 package com.nilsonalves.flink_app.fragments.card_lista;
 
 public class Lista_Modelo {
-    private String nomeMercado;
-    private String nomeProduto;
-    private Integer valorProduto;
-    private Integer qtdCarrinho;
-    private Integer qtdFavorito;
+    private String descricaoProduto;
+    private Integer qtdAddCarrinho;
+    private Integer qtdAddFavorito;
+    private Integer valorproduto;
 
-    public String getNomeMercado() {
-        return nomeMercado;
+    public String getDescricaoProduto() {
+        return descricaoProduto;
     }
 
-    public void setNomeMercado(String nomeMercado) {
-        this.nomeMercado = nomeMercado;
+    public void setDescricaoProduto(String descricaoProduto) {
+        this.descricaoProduto = descricaoProduto;
     }
 
-    public String getNomeProduto() {
-        return nomeProduto;
+    public Integer getQtdAddCarrinho() {
+        return qtdAddCarrinho;
     }
 
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+    public void setQtdAddCarrinho(Integer qtdAddCarrinho) {
+        this.qtdAddCarrinho = qtdAddCarrinho;
     }
 
-    public Integer getValorProduto() {
-        return valorProduto;
+    public Integer getQtdAddFavorito() {
+        return qtdAddFavorito;
     }
 
-    public void setValorProduto(Integer valorProduto) {
-        this.valorProduto = valorProduto;
+    public void setQtdAddFavorito(Integer qtdAddFavorito) {
+        this.qtdAddFavorito = qtdAddFavorito;
     }
 
-    public Integer getQtdCarrinho() {
-        return qtdCarrinho;
+    public Integer getValorproduto() {
+        return valorproduto;
     }
 
-    public void setQtdCarrinho(Integer qtdCarrinho) {
-        this.qtdCarrinho = qtdCarrinho;
+    public void setValorproduto(Integer valorproduto) {
+        this.valorproduto = valorproduto;
     }
-
-    public Integer getQtdFavorito() {
-        return qtdFavorito;
-    }
-
-    public void setQtdFavorito(Integer qtdFavorito) {
-        this.qtdFavorito = qtdFavorito;
-    }
-
 }
