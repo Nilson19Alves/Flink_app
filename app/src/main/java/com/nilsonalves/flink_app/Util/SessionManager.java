@@ -3,10 +3,8 @@ package com.nilsonalves.flink_app.Util;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-
 import com.nilsonalves.flink_app.Flink_Access;
 import com.nilsonalves.flink_app.Flink_Login;
-
 import java.util.HashMap;
 
 public class SessionManager {

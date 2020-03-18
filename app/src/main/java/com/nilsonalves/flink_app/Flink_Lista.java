@@ -3,6 +3,7 @@ package com.nilsonalves.flink_app;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -13,7 +14,7 @@ import com.nilsonalves.flink_app.lists.List_Adapter;
 import com.nilsonalves.flink_app.lists.Lista_Modelo;
 import java.util.ArrayList;
 
-public class Flink_Lista extends AppCompatActivity {
+public class Flink_Lista extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private RecyclerView listaItens;
     private ImageButton btn_code, btn_faq;
     private SearchView lista_filtro;
@@ -25,13 +26,25 @@ public class Flink_Lista extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
 
-        findIds();
+        buscaIds();
         btnFloat();
+        abrirQR();
 
         listaItens.setLayoutManager( new LinearLayoutManager(getBaseContext()));
-        listAdapter = new List_Adapter(getBaseContext(),getListItens());
         listAdapter = new List_Adapter(getBaseContext(), getListItens());
         listaItens.setAdapter(listAdapter);
+
+        lista_filtro.setOnQueryTextListener(this);
+    }
+
+    private void abrirQR() {
+        btn_code.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent qr = new Intent(getBaseContext(), Flink_qrCode.class);
+                startActivity(qr);
+            }
+        });
     }
 
     private ArrayList<Lista_Modelo> getListItens(){
@@ -72,7 +85,7 @@ public class Flink_Lista extends AppCompatActivity {
         return list;
     }
 
-    private void findIds(){
+    private void buscaIds(){
         listaItens = findViewById(R.id.lista_compras);
         btn_code = findViewById(R.id.btn_code);
         btn_faq = findViewById(R.id.btn_faq);
@@ -88,6 +101,16 @@ public class Flink_Lista extends AppCompatActivity {
                         .setAction("Sim",null).show();
             }
         });
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        return false;
     }
 
 }

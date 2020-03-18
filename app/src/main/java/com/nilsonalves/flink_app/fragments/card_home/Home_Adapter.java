@@ -42,13 +42,10 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
         holder.distancia_card.setText(String.valueOf(home_modelos.get(position).getDistancia()));
         holder.status_card.setText(home_modelos.get(position).getStatus());
         holder.endereco_card.setText(home_modelos.get(position).getEndereco());
-        holder.card_card.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent lista = new Intent(context, Flink_Lista.class);
-                context.startActivity(lista);
-            }
-        });
+
+        clickCard(holder);
+        clickRotaMercado(holder);
+
     }
 
     @Override
@@ -81,5 +78,24 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
             card_card = itemView.findViewById(R.id.card_card);
         }
 
+    }
+
+    private void clickCard(ViewHolder viewHolder){
+        viewHolder.card_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent lista = new Intent(context, Flink_Lista.class);
+                context.startActivity(lista);
+            }
+        });
+    }
+
+    private void clickRotaMercado(ViewHolder viewHolder){
+        viewHolder.localiza_mercado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 }

@@ -18,6 +18,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.nilsonalves.flink_app.Flink_Lista;
 import com.nilsonalves.flink_app.Flink_qrCode;
 import com.nilsonalves.flink_app.R;
+import com.nilsonalves.flink_app.fragments.card_lista.Lista_Adapter;
+import com.nilsonalves.flink_app.fragments.card_lista.Lista_Modelo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Fragment_Lista extends Fragment {
     ImageButton btn_faq, btn_code;
@@ -25,6 +30,7 @@ public class Fragment_Lista extends Fragment {
     TextView nomeMercado, totalPagar;
     RecyclerView recycle_lista;
     FloatingActionButton btnRetornarLista;
+    Lista_Modelo modelo;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +53,7 @@ public class Fragment_Lista extends Fragment {
 
         recycle_lista.setLayoutManager(new LinearLayoutManager(getContext()));
         recycle_lista.setItemAnimator(new DefaultItemAnimator());
+
 
         clickBntFloat();
         clickFaq();

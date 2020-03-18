@@ -105,7 +105,6 @@ public class Flink_Splash extends AppCompatActivity {
                 builder.setBackground(getResources().getDrawable(R.color.White));
 
                 builder.show();
-
             }
         }, 1000);
     }
@@ -148,5 +147,4 @@ public class Flink_Splash extends AppCompatActivity {
             }
         });
     }
-
 }
