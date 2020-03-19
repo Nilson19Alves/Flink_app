@@ -54,4 +54,11 @@ public class Flink_qrCode extends Activity implements ZXingScannerView.ResultHan
         super.onPause();
         scannerView.stopCamera();
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), Flink_Inicio.class);
+        startActivity(intent);
+        finish();
+    }
 }
