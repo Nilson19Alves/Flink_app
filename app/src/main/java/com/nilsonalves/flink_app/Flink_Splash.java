@@ -80,32 +80,9 @@ public class Flink_Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(Flink_Splash.this);
-
-
-
-                builder.setPositiveButton("Estou no Mercado", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-                builder.setPositiveButtonIcon(getDrawable(R.drawable.icons8_qr_code_26px));
-
-                builder.setNegativeButton("Fazer uma Lista", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(getApplicationContext(), Flink_Access.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
-                builder.setNegativeButtonIcon(getDrawable(R.drawable.icons8_list_32px));
-
-                builder.setBackground(getResources().getDrawable(R.color.White));
-
-                builder.show();
-
+                Intent intent = new Intent(getApplicationContext(), Flink_Inicio.class);
+                startActivity(intent);
+                finish();
             }
         }, 1000);
     }

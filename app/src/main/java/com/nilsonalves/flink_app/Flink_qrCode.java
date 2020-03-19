@@ -2,11 +2,13 @@ package com.nilsonalves.flink_app;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.google.zxing.Result;
 
@@ -34,8 +36,9 @@ public class Flink_qrCode extends Activity implements ZXingScannerView.ResultHan
 
     @Override
     public void handleResult(Result rawResult) {
-        //Flink_Home.qrCode_result.setText(rawResult.getText());
-        onBackPressed();
+        Intent intent = new Intent(getApplicationContext(), FeedTeste.class);
+        intent.putExtra("QR_Code", rawResult.toString());
+        startActivity(intent);
         finish();
     }
 

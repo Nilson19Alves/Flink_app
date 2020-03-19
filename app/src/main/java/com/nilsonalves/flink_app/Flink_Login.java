@@ -104,12 +104,8 @@ public class Flink_Login extends AppCompatActivity {
 
                                     sessionManager.creatSession(nome, tel, passw);
 
-                                    Intent intent = new Intent(getApplicationContext(), Flink_Access.class);
-                                    Bundle bundle = new Bundle();
-                                    bundle.putString("Nome", nome);
-                                    bundle.putString("Telefone", tel);
-                                    bundle.putString("Password", passw);
-                                    startActivity(intent, bundle);
+                                    Intent intent = new Intent(getApplicationContext(), Flink_Inicio.class);
+                                    startActivity(intent);
                                     finish();
 
                                 } else {

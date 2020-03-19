@@ -2,12 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nilsonalves.flink_app">
 
-    <uses-feature android:name="android.hardware.camera" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
@@ -15,7 +9,9 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon_logo_vertical"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MaterialComponents.NoActionBar">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".FeedTeste"></activity>
+        <activity android:name=".Flink_Inicio" />
         <activity android:name=".Flink_Lista" />
         <activity android:name=".Flink_Access" />
         <activity android:name=".Flink_qrCode" />
@@ -28,5 +24,11 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

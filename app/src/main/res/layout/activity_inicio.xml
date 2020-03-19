@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Flink_Inicio">
+
+    <Button
+        android:id="@+id/no_Mercado"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        android:background="@color/DarkOrchid"
+        android:textColor="@color/White"
+        android:text="Estou no Mercado"
+        android:textSize="22sp"
+        />
+
+    <Button
+        android:id="@+id/escolher_mercado"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/White"
+        android:text="Escolher Mercado"
+        android:textSize="22sp" />
+
+    <Button
+        android:id="@+id/minhas_listas"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        android:background="@color/MediumPurple"
+        android:textColor="@color/White"
+        android:text="Minhas Listas"
+        android:textSize="22sp" />
+
+    <Button
+        android:id="@+id/sair"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/Chocolate"
+        android:textColor="@color/White"
+        android:text="Sair"
+        android:textSize="18sp" />
+</LinearLayout>

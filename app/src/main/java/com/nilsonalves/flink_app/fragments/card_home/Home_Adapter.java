@@ -46,6 +46,7 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
             @Override
             public void onClick(View view) {
                 Intent lista = new Intent(context, Flink_Lista.class);
+                lista.putExtra("Mercado", home_modelos.get(position).getTitulo());
                 context.startActivity(lista);
             }
         });
