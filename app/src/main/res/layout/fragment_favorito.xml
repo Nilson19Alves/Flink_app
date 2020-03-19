@@ -1,15 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:gravity="center"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/SilverWhite">
 
-    <TextView
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Favorito"
-        android:textSize="12pt"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <ImageButton
+            style="@style/ShapeAppearance.MaterialComponents.SmallComponent"
+            android:id="@+id/btn_faq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:background="@color/SilverWhite"
+            android:contentDescription="@string/img_help"
+            android:src="@drawable/icon_interrogacao_48" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="-4dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/img_barra_superior"
+            android:src="@drawable/icon_barra_superior" />
+
+        <Button
+            android:id="@+id/btn_code"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:backgroundTint="@color/SilverWhite"
+            android:backgroundTintMode="add"
+            android:contentDescription="@string/img_qr_code"
+            app:icon="@drawable/icons_qr_40"
+            app:iconTint="@color/BlueViolet" />
+
+    </GridLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <TextView
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
-        android:textAlignment="center"/>
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:text="@string/favorito_card_title"/>
+
+    <TextView
+        android:layout_marginTop="-20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:padding="15dp"
+        android:lineSpacingExtra="7dp"
+        android:text="@string/favorito_card_sub_title"
+        android:textColor="@color/Black"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_voltar_compras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textColor="@color/White"
+        android:layout_gravity="center"
+        style="@style/Widget.MaterialComponents.Button"
+        app:backgroundTint="@color/colorPrimary"
+        app:cornerRadius="10dp"
+        android:text="@string/favorito_card_btn_continua_compra"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lista_favorita"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"/>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/float_adicionar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:background="@android:drawable/ic_input_add"
+        android:backgroundTint="@color/OrangeLight"
+        android:backgroundTintMode="add"
+        app:backgroundTint="@color/OrangeLight"
+        app:backgroundTintMode="add"
+        app:elevation="5dp" />
 
 </LinearLayout>

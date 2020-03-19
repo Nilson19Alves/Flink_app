@@ -54,7 +54,7 @@
     <string name="lista_arroz">Arroz</string>
     <string name="lista_feijao">Feijão</string>
 
-    <!-- Activity Feed -->
+    <!-- Fragment Feed -->
     <string name="feed_card_title">você está em</string>
     <string name="feed_card_valor">seu total:</string>
     <string name="feed_card_btn_float">Retornar à lista</string>
@@ -62,4 +62,9 @@
     <string name="feed_card_rota_mercado">Rota no\nMercado</string>
     <string name="feed_card_descricao_produto">Sorvete de Açaí com Guaraná</string>
 
+
+    <!-- Fragment Favorito -->
+    <string name="favorito_card_title">Minha Lista de Compras</string>
+    <string name="favorito_card_sub_title">Verifique abaixo se são esses os itens que você deseja! O próximo passo será irmos às compras!</string>
+    <string name="favorito_card_btn_continua_compra">Continuar comprando!</string>
 </resources>

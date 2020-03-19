@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -25,7 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fragment_Lista extends Fragment {
-    ImageButton btn_faq, btn_code;
+    ImageButton btn_faq;
+    Button btn_code;
     CardView scannerProduto, rotamercado;
     TextView nomeMercado, totalPagar;
     RecyclerView recycle_lista;

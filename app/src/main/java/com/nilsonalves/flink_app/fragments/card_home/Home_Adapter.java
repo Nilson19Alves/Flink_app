@@ -55,7 +55,7 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView title_card, distancia_card, classifica_card, endereco_card, status_card;
-        ImageButton btn_code, localiza_mercado;
+        ImageButton localiza_mercado;
         ImageView logo;
         CardView card_card;
 
@@ -73,7 +73,6 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
             status_card = itemView.findViewById(R.id.status_card);
             endereco_card = itemView.findViewById(R.id.endereco_card);
             localiza_mercado = itemView.findViewById(R.id.localiza_mercado);
-            btn_code = itemView.findViewById(R.id.btn_code);
             logo = itemView.findViewById(R.id.logo);
             card_card = itemView.findViewById(R.id.card_card);
         }
