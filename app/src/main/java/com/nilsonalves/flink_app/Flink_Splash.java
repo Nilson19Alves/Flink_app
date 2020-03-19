@@ -82,6 +82,7 @@ public class Flink_Splash extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(getApplicationContext(), Flink_Inicio.class);
                 startActivity(intent);
+                finish();
             }
         }, 1000);
     }
