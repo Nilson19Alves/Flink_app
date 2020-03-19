@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +37,7 @@ public class Fragment_Home extends Fragment {
     private RecyclerView lista_supermer;
     private Home_Adapter adapter;
     private TextView title_home_user;
-    private ImageButton btn_code;
+    private Button btn_code;
     SessionManager sessionManager;
     private final String url = "https://testeflink.000webhostapp.com/Conexao_mysql/Home.php";
 
@@ -136,5 +137,4 @@ public class Fragment_Home extends Fragment {
             }
         });
     }
-
 }

@@ -1,15 +1,19 @@
 package com.nilsonalves.flink_app.fragments.card_lista;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.nilsonalves.flink_app.R;
 import java.util.List;
 
@@ -30,11 +34,17 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.descricaoProduto.setText(modelo.get(position).getDescricaoProduto());
         holder.qtdAddCarrinho.setText(modelo.get(position).getQtdAddCarrinho());
         holder.qtdAddFavorito.setText(modelo.get(position).getQtdAddFavorito());
-        holder.valorproduto.setText(modelo.get(position).getValorproduto());
+        holder.valorproduto.setText(String.valueOf(modelo.get(position).getValorproduto()));
+        holder.card_lista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"Clique "+ position,Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -45,7 +55,7 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView descricaoProduto;
-        CardView card_lista, cardValorProduto;
+        CardView card_lista;
         ImageButton addCarrinho, addFavorito;
         TextView qtdAddCarrinho, qtdAddFavorito, valorproduto;
 
@@ -59,7 +69,6 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
         private void buscaId(){
             descricaoProduto = itemView.findViewById(R.id.descricaoProduto);
             card_lista = itemView.findViewById(R.id.card_lista);
-            cardValorProduto = itemView.findViewById(R.id.cardValorProduto);
             addCarrinho = itemView.findViewById(R.id.addCarrinho);
             addFavorito = itemView.findViewById(R.id.addFavorito);
             qtdAddCarrinho = itemView.findViewById(R.id.qtdAddCarrinho);
