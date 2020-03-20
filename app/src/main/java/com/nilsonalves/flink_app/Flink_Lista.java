@@ -29,6 +29,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Flink_Lista extends AppCompatActivity {
     private RecyclerView listaItens;
@@ -92,6 +93,7 @@ public class Flink_Lista extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Problema ao busca Produtos!", Toast.LENGTH_LONG).show();
                     }
                 })
@@ -99,8 +101,8 @@ public class Flink_Lista extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                Bundle bundle = getIntent().getExtras();
-                String mercado = bundle.getString("Mercado");
+                String mercado = Objects.requireNonNull(getIntent().getExtras()).getString("Mercado");
+                assert mercado != null;
                 params.put("Mercado", mercado);
                 return params;
             }
