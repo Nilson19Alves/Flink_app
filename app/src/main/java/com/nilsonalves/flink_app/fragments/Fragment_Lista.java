@@ -5,15 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -35,7 +32,6 @@ public class Fragment_Lista extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Nullable
@@ -43,14 +39,15 @@ public class Fragment_Lista extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista, container, false);
 
-        recycle_lista.setLayoutManager(new LinearLayoutManager(recycle_lista.getContext()));
-        listaAdapter = new Lista_Adapter(getContext(),getDadosLista());
-        recycle_lista.setAdapter(listaAdapter);
-
         buscarIds(view);
         clickBntFloat();
         clickFaq();
         clickCode();
+
+        recycle_lista.setLayoutManager(new LinearLayoutManager(getContext()));
+        listaAdapter = new Lista_Adapter(getContext(),getDadosLista());
+        recycle_lista.setAdapter(listaAdapter);
+
         return view;
     }
 
