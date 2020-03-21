@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,24 +20,22 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.nilsonalves.flink_app.Flink_Lista;
 import com.nilsonalves.flink_app.Flink_qrCode;
 import com.nilsonalves.flink_app.R;
+import com.nilsonalves.flink_app.fragments.card_lista.Card_Lista_Modelo;
 import com.nilsonalves.flink_app.fragments.card_lista.Lista_Adapter;
-import com.nilsonalves.flink_app.fragments.card_lista.Lista_Modelo;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class Fragment_Lista extends Fragment {
-    ImageButton btn_faq;
-    Button btn_code;
-    CardView scannerProduto, rotamercado;
-    TextView nomeMercado, totalPagar;
-    RecyclerView recycle_lista;
-    FloatingActionButton btnRetornarLista;
-    Lista_Modelo modelo;
+    private ImageButton btn_faq,btn_code;
+    private CardView scannerProduto, rotamercado;
+    private TextView nomeMercado, totalPagar;
+    private RecyclerView recycle_lista;
+    private FloatingActionButton btnRetornarLista;
+    private Lista_Adapter listaAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Nullable
@@ -44,6 +43,66 @@ public class Fragment_Lista extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista, container, false);
 
+        recycle_lista.setLayoutManager(new LinearLayoutManager(recycle_lista.getContext()));
+        listaAdapter = new Lista_Adapter(getContext(),getDadosLista());
+        recycle_lista.setAdapter(listaAdapter);
+
+        buscarIds(view);
+        clickBntFloat();
+        clickFaq();
+        clickCode();
+        return view;
+    }
+
+    private ArrayList<Card_Lista_Modelo> getDadosLista() {
+        ArrayList<Card_Lista_Modelo> arrayList = new ArrayList<Card_Lista_Modelo>();
+
+        Card_Lista_Modelo listaModelo = new Card_Lista_Modelo();
+
+        listaModelo.setDescricaoProduto("Sorvete de Açaí com Guaraná");
+        listaModelo.setQtdAddCarrinho(12);
+        listaModelo.setQtdAddFavorito(5);
+        listaModelo.setValorproduto(25.80);
+        arrayList.add(listaModelo);
+
+        listaModelo.setDescricaoProduto("Sorvete de Açaí com Guaraná");
+        listaModelo.setQtdAddCarrinho(12);
+        listaModelo.setQtdAddFavorito(5);
+        listaModelo.setValorproduto(25.80);
+        arrayList.add(listaModelo);
+
+        listaModelo.setDescricaoProduto("Sorvete de Açaí com Guaraná");
+        listaModelo.setQtdAddCarrinho(12);
+        listaModelo.setQtdAddFavorito(5);
+        listaModelo.setValorproduto(25.80);
+        arrayList.add(listaModelo);
+
+        listaModelo.setDescricaoProduto("Sorvete de Açaí com Guaraná");
+        listaModelo.setQtdAddCarrinho(12);
+        listaModelo.setQtdAddFavorito(5);
+        listaModelo.setValorproduto(25.80);
+        arrayList.add(listaModelo);
+
+        listaModelo.setDescricaoProduto("Sorvete de Açaí com Guaraná");
+        listaModelo.setQtdAddCarrinho(12);
+        listaModelo.setQtdAddFavorito(5);
+        listaModelo.setValorproduto(25.80);
+        arrayList.add(listaModelo);
+
+        listaModelo.setDescricaoProduto("Sorvete de Açaí com Guaraná");
+        listaModelo.setQtdAddCarrinho(12);
+        listaModelo.setQtdAddFavorito(5);
+        listaModelo.setValorproduto(25.80);
+        arrayList.add(listaModelo);
+
+        return arrayList;
+    }
+
+    public static Fragment_Lista newInstance(){
+        return new Fragment_Lista();
+    }
+
+    private void buscarIds(View view){
         btn_faq = view.findViewById(R.id.btn_faq);
         btn_code = view.findViewById(R.id.btn_code);
         scannerProduto = view.findViewById(R.id.scannerProduto);
@@ -52,20 +111,6 @@ public class Fragment_Lista extends Fragment {
         totalPagar = view.findViewById(R.id.totalPagar);
         btnRetornarLista = view.findViewById(R.id.btnRetornarLista);
         recycle_lista = view.findViewById(R.id.recycle_lista);
-
-        recycle_lista.setLayoutManager(new LinearLayoutManager(getContext()));
-        recycle_lista.setItemAnimator(new DefaultItemAnimator());
-
-
-        clickBntFloat();
-        clickFaq();
-        clickCode();
-
-        return view;
-    }
-
-    public static Fragment_Lista newInstance(){
-        return new Fragment_Lista();
     }
 
     private void clickBntFloat(){

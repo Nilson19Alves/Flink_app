@@ -37,7 +37,7 @@ public class Fragment_Home extends Fragment {
     private RecyclerView lista_supermer;
     private Home_Adapter adapter;
     private TextView title_home_user;
-    private Button btn_code;
+    private ImageButton btn_code, btn_faq;
     SessionManager sessionManager;
     private final String url = "https://testeflink.000webhostapp.com/Conexao_mysql/Home.php";
 
@@ -54,10 +54,11 @@ public class Fragment_Home extends Fragment {
         title_home_user = view.findViewById(R.id.title_home_user);
         lista_supermer = view.findViewById(R.id.lista_supermer);
         btn_code = view.findViewById(R.id.btn_code);
+        btn_faq = view.findViewById(R.id.btn_faq);
 
         lista_supermer.setLayoutManager(new LinearLayoutManager(getContext()));
-        lista_home();
 
+        lista_home();
         ClickQRBottom();
 
         sessionManager = new SessionManager(getContext());

@@ -17,13 +17,14 @@
         android:padding="2dp">
 
         <ImageButton
-            style="@style/ShapeAppearance.MaterialComponents.SmallComponent"
             android:id="@+id/btn_faq"
+            style="@android:style/Widget.Material.ImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:background="@color/SilverWhite"
             android:contentDescription="@string/img_help"
+            android:foregroundTint="@color/BlueViolet"
             android:src="@drawable/icon_interrogacao_48" />
 
         <ImageView
@@ -35,18 +36,16 @@
             android:contentDescription="@string/img_barra_superior"
             android:src="@drawable/icon_barra_superior" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_code"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:padding="2dp"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="right"
-            android:gravity="center"
-            android:backgroundTint="@color/SilverWhite"
-            android:backgroundTintMode="add"
+            android:background="@drawable/icons_qr_40"
             android:contentDescription="@string/img_qr_code"
-            app:icon="@drawable/icons_qr_40"
-            app:iconTint="@color/BlueViolet" />
+            android:gravity="center" />
 
     </GridLayout>
 

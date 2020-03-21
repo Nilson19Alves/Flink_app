@@ -18,17 +18,18 @@ import com.nilsonalves.flink_app.fragments.Fragment_Perfil;
 public class Flink_Access extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
     private FrameLayout frame;
     private BottomNavigationView navegation;
-    private ListView listaSuper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_access);
+
         ID_Access();
+
         openFragment(new Fragment_Home());
         navegation.setOnNavigationItemSelectedListener(Flink_Access.this);
     }
-    // Associando id's
+
     private void ID_Access(){
         frame = findViewById(R.id.frame);
         navegation = findViewById(R.id.navegation);

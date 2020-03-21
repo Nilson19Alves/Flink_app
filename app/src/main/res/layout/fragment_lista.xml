@@ -12,17 +12,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
-        android:padding="2dp"
-        tools:ignore="MissingConstraints">
+        android:padding="2dp">
 
         <ImageButton
-            style="@style/ShapeAppearance.MaterialComponents.SmallComponent"
             android:id="@+id/btn_faq"
+            style="@android:style/Widget.Material.ImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:background="@color/SilverWhite"
             android:contentDescription="@string/img_help"
+            android:foregroundTint="@color/BlueViolet"
             android:src="@drawable/icon_interrogacao_48" />
 
         <ImageView
@@ -34,23 +34,20 @@
             android:contentDescription="@string/img_barra_superior"
             android:src="@drawable/icon_barra_superior" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_code"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:padding="2dp"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="right"
-            android:gravity="center"
-            android:backgroundTint="@color/SilverWhite"
-            android:backgroundTintMode="add"
+            android:background="@drawable/icons_qr_40"
             android:contentDescription="@string/img_qr_code"
-            app:icon="@drawable/icons_qr_40"
-            app:iconTint="@color/BlueViolet" />
+            android:gravity="center" />
 
     </GridLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardStatusFeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/White"
@@ -175,6 +172,7 @@
         tools:ignore="UselessLeaf">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            style="@style/Widget.Design.BottomSheet.Modal"
             android:id="@+id/btnRetornarLista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -192,7 +190,6 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/scannerProduto"
-                style="@style/Widget.MaterialComponents.CardView"
                 app:cardElevation="2dp"
                 app:cardUseCompatPadding="true"
                 app:contentPadding="10dp"
@@ -209,30 +206,29 @@
                     android:text="@string/feed_card_scanear_produto"
                     android:fontFamily="@font/montserrat"
                     android:textColor="@color/White"
-                    android:textAlignment="center"
+                    android:gravity="center"
                     android:textSize="10sp"/>
 
-                    <LinearLayout
-                        android:padding="2dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        tools:ignore="AdapterViewChildren">
+                <LinearLayout
+                    android:padding="2dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    tools:ignore="AdapterViewChildren">
 
-                        <ImageView
-                            android:layout_gravity="bottom"
-                            android:contentDescription="@string/app_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/icon_codigo_barras_32"/>
+                    <ImageView
+                        android:layout_gravity="bottom"
+                        android:contentDescription="@string/app_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_codigo_barras_32"/>
 
-                    </LinearLayout>
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/rotaMercado"
-                style="@style/Widget.MaterialComponents.CardView"
                 app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
                 app:contentPadding="10dp"

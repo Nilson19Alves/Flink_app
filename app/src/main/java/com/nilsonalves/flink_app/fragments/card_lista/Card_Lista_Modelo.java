@@ -1,9 +1,9 @@
 package com.nilsonalves.flink_app.fragments.card_lista;
 
-public class Lista_Modelo {
+public class Card_Lista_Modelo {
     private String descricaoProduto;
-    private Integer qtdAddCarrinho;
-    private Integer qtdAddFavorito;
+    private int imagemProduto, qtdAddCarrinho;
+    private int qtdAddFavorito;
     private double valorproduto;
 
     public String getDescricaoProduto() {
@@ -14,19 +14,27 @@ public class Lista_Modelo {
         this.descricaoProduto = descricaoProduto;
     }
 
-    public Integer getQtdAddCarrinho() {
+    public int getImagemProduto() {
+        return imagemProduto;
+    }
+
+    public void setImagemProduto(int imagemProduto) {
+        this.imagemProduto = imagemProduto;
+    }
+
+    public int getQtdAddCarrinho() {
         return qtdAddCarrinho;
     }
 
-    public void setQtdAddCarrinho(Integer qtdAddCarrinho) {
+    public void setQtdAddCarrinho(int qtdAddCarrinho) {
         this.qtdAddCarrinho = qtdAddCarrinho;
     }
 
-    public Integer getQtdAddFavorito() {
+    public int getQtdAddFavorito() {
         return qtdAddFavorito;
     }
 
-    public void setQtdAddFavorito(Integer qtdAddFavorito) {
+    public void setQtdAddFavorito(int qtdAddFavorito) {
         this.qtdAddFavorito = qtdAddFavorito;
     }
 

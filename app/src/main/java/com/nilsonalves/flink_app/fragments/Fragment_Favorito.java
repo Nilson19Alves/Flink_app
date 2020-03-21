@@ -13,7 +13,8 @@ public class Fragment_Favorito extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_favorito, container, false);
+        View view = inflater.inflate(R.layout.fragment_favorito, container, false);
+        return view;
     }
 
     public static Fragment_Favorito newInstance(){
