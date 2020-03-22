@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nilsonalves.flink_app.Flink_Lista;
+import com.nilsonalves.flink_app.Flink_Rota_Mercado;
 import com.nilsonalves.flink_app.R;
 import com.squareup.picasso.Picasso;
 import java.util.List;
@@ -45,6 +46,7 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
 
         String mercado = home_modelos.get(position).getTitulo();
         clickCards(holder, mercado);
+        clickButtomMapa(holder,position);
     }
 
     @Override
@@ -54,25 +56,19 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView title_card, distancia_card, classifica_card, endereco_card, status_card;
-        ImageButton btn_code, localiza_mercado;
+        ImageButton localiza_mercado;
         ImageView logo;
         CardView card_card;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            buscaId();
-
-        }
-
-        private void buscaId(){
             title_card = itemView.findViewById(R.id.title_card);
             classifica_card = itemView.findViewById(R.id.classifica_card);
             distancia_card = itemView.findViewById(R.id.distancia_card);
             status_card = itemView.findViewById(R.id.status_card);
             endereco_card = itemView.findViewById(R.id.endereco_card);
             localiza_mercado = itemView.findViewById(R.id.localiza_mercado);
-            btn_code = itemView.findViewById(R.id.btn_code);
             logo = itemView.findViewById(R.id.logo);
             card_card = itemView.findViewById(R.id.card_card);
         }
@@ -86,6 +82,16 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
                 Intent lista = new Intent(context, Flink_Lista.class);
                 lista.putExtra("Mercado", mercado);
                 context.startActivity(lista);
+            }
+        });
+    }
+
+    private void clickButtomMapa(ViewHolder holder, int position) {
+        holder.localiza_mercado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mapa = new Intent(context, Flink_Rota_Mercado.class);
+                context.startActivity(mapa);
             }
         });
     }

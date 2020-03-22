@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nilsonalves.flink_app">
 
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
@@ -10,7 +16,8 @@
         android:roundIcon="@drawable/icon_logo_vertical"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
-        <activity android:name=".FeedTeste"></activity>
+        <activity android:name=".Flink_Rota_Mercado"></activity>
+        <activity android:name=".FeedTeste" />
         <activity android:name=".Flink_Inicio" />
         <activity android:name=".Flink_Lista" />
         <activity android:name=".Flink_Access" />
@@ -24,11 +31,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
