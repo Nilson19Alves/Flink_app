@@ -16,14 +16,13 @@
 
         <ImageButton
             android:id="@+id/btn_faq"
-            style="@android:style/Widget.Material.ImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="left"
-            android:background="@color/SilverWhite"
-            android:contentDescription="@string/img_help"
-            android:foregroundTint="@color/BlueViolet"
-            android:src="@drawable/icon_interrogacao_48" />
+            android:background="@drawable/icon_help_black"
+            android:backgroundTint="@color/MediumPurple"
+            android:contentDescription="@string/img_help" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -36,14 +35,14 @@
 
         <ImageButton
             android:id="@+id/btn_code"
-            android:padding="2dp"
             style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="right"
-            android:background="@drawable/icons_qr_40"
+            android:background="@drawable/icon_qr_code"
             android:contentDescription="@string/img_qr_code"
-            android:gravity="center" />
+            android:gravity="center"
+            android:padding="10dp" />
 
     </GridLayout>
 
@@ -52,7 +51,7 @@
         android:layout_height="wrap_content"
         android:background="@color/White"
         app:cardElevation="8dp"
-        app:contentPadding="10dp"
+        app:contentPadding="5dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_gravity="center_horizontal"
@@ -69,12 +68,12 @@
             tools:ignore="UselessLeaf">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="21dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/icon_localizacao_48"/>
+                android:src="@drawable/icon_local"/>
 
             <LinearLayout
                 android:padding="5dp"
@@ -98,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
                     android:text="VerdFruit"
-                    android:textColor="@color/Silver"
+                    android:textColor="@color/BlackGray"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:ignore="MissingConstraints" />
@@ -144,7 +143,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
                     android:text="R$ 412,64"
-                    android:textColor="@color/BlueViolet"
+                    android:textColor="@color/MediumPurple"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:ignore="MissingConstraints" />
@@ -156,47 +155,56 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.core.widget.NestedScrollView
+        android:layout_marginBottom="40dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle_lista"
+            android:padding="5dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_gravity="top" />
 
     </androidx.core.widget.NestedScrollView>
 
     <GridLayout
+        android:layout_marginTop="-300dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="UselessLeaf">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            style="@style/Widget.Design.BottomSheet.Modal"
+        <com.google.android.material.button.MaterialButton
+            android:padding="8dp"
             android:id="@+id/btnRetornarLista"
             android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_gravity="top"
-            android:src="@drawable/icon_carrinho_24"
-            android:background="@color/BlueViolet"/>
+            app:elevation="8dp"
+            app:cornerRadius="50dp"
+            android:fontFamily="@font/montserrat"
+            android:textSize="7sp"
+            android:text="Retornar \n à lista"
+            android:background="@color/SilverWhite"
+            android:layout_gravity="bottom"/>
 
         <LinearLayout
             android:layout_gravity="right"
             android:orientation="vertical"
-            android:layout_marginRight="-22dp"
+            android:layout_marginRight="-20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
+                style="@style/Widget.MaterialComponents.CardView"
                 android:id="@+id/scannerProduto"
                 app:cardElevation="2dp"
                 app:cardUseCompatPadding="true"
                 app:contentPadding="10dp"
                 app:cardCornerRadius="20dp"
                 android:layout_gravity="right"
-                app:cardBackgroundColor="@color/BlueViolet"
-                android:layout_width="110dp"
+                app:cardBackgroundColor="@color/MediumPurple"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -212,30 +220,34 @@
                 <LinearLayout
                     android:padding="2dp"
                     android:layout_marginTop="30dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     tools:ignore="AdapterViewChildren">
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:backgroundTint="@color/White"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:layout_gravity="bottom"
+                        app:tint="@color/White"
                         android:contentDescription="@string/app_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/icon_codigo_barras_32"/>
+                        android:src="@drawable/icon_codigo_barras_32" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                style="@style/Widget.MaterialComponents.CardView"
                 android:id="@+id/rotaMercado"
                 app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
                 app:contentPadding="10dp"
                 app:cardCornerRadius="20dp"
                 android:layout_gravity="right"
-                app:cardBackgroundColor="@color/BlueViolet"
-                android:layout_width="110dp"
+                app:cardBackgroundColor="@color/MediumPurple"
+                android:layout_marginTop="-10dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -250,15 +262,15 @@
                 <LinearLayout
                     android:padding="2dp"
                     android:layout_marginTop="30dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <ImageView
                         android:layout_gravity="bottom"
                         android:contentDescription="@string/app_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/icon_rota_mercado_32"/>
 
                 </LinearLayout>

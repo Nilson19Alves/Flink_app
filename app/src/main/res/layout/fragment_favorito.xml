@@ -15,14 +15,13 @@
 
         <ImageButton
             android:id="@+id/btn_faq"
-            style="@android:style/Widget.Material.ImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="left"
-            android:background="@color/SilverWhite"
-            android:contentDescription="@string/img_help"
-            android:foregroundTint="@color/BlueViolet"
-            android:src="@drawable/icon_interrogacao_48" />
+            android:background="@drawable/icon_help_black"
+            android:backgroundTint="@color/MediumPurple"
+            android:contentDescription="@string/img_help" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -35,14 +34,14 @@
 
         <ImageButton
             android:id="@+id/btn_code"
-            android:padding="2dp"
             style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="right"
-            android:background="@drawable/icons_qr_40"
+            android:background="@drawable/icon_qr_code"
             android:contentDescription="@string/img_qr_code"
-            android:gravity="center" />
+            android:gravity="center"
+            android:padding="10dp" />
 
     </GridLayout>
 

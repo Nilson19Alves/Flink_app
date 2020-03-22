@@ -32,10 +32,7 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.descricaoProduto.setText(modelo.get(position).getDescricaoProduto());
-        holder.qtdAddCarrinho.setText(modelo.get(position).getQtdAddCarrinho());
-        holder.qtdAddFavorito.setText(modelo.get(position).getQtdAddFavorito());
-        holder.valorproduto.setText(String.valueOf(modelo.get(position).getValorproduto()));
-        holder.imagemProduto.setImageResource(modelo.get(position).getImagemProduto());
+
 
         clickLista(holder, position);
     }

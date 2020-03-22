@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -22,11 +23,11 @@ import com.nilsonalves.flink_app.fragments.card_lista.Lista_Adapter;
 import java.util.ArrayList;
 
 public class Fragment_Lista extends Fragment {
-    private ImageButton btn_faq,btn_code;
+    private ImageButton btn_faq,btn_code, addCarrinho, addFavorito;
     private CardView scannerProduto, rotamercado;
     private TextView nomeMercado, totalPagar;
+    private Button btnRetornarLista;
     private RecyclerView recycle_lista;
-    private FloatingActionButton btnRetornarLista;
     private Lista_Adapter listaAdapter;
 
     @Override
@@ -57,39 +58,9 @@ public class Fragment_Lista extends Fragment {
         Card_Lista_Modelo listaModelo = new Card_Lista_Modelo();
 
         listaModelo.setDescricaoProduto("Sorvete de Açaí com Guaraná");
-        listaModelo.setQtdAddCarrinho(12);
-        listaModelo.setQtdAddFavorito(5);
-        listaModelo.setValorproduto(25.80);
         arrayList.add(listaModelo);
 
         listaModelo.setDescricaoProduto("Sorvete de Açaí com Guaraná");
-        listaModelo.setQtdAddCarrinho(12);
-        listaModelo.setQtdAddFavorito(5);
-        listaModelo.setValorproduto(25.80);
-        arrayList.add(listaModelo);
-
-        listaModelo.setDescricaoProduto("Sorvete de Açaí com Guaraná");
-        listaModelo.setQtdAddCarrinho(12);
-        listaModelo.setQtdAddFavorito(5);
-        listaModelo.setValorproduto(25.80);
-        arrayList.add(listaModelo);
-
-        listaModelo.setDescricaoProduto("Sorvete de Açaí com Guaraná");
-        listaModelo.setQtdAddCarrinho(12);
-        listaModelo.setQtdAddFavorito(5);
-        listaModelo.setValorproduto(25.80);
-        arrayList.add(listaModelo);
-
-        listaModelo.setDescricaoProduto("Sorvete de Açaí com Guaraná");
-        listaModelo.setQtdAddCarrinho(12);
-        listaModelo.setQtdAddFavorito(5);
-        listaModelo.setValorproduto(25.80);
-        arrayList.add(listaModelo);
-
-        listaModelo.setDescricaoProduto("Sorvete de Açaí com Guaraná");
-        listaModelo.setQtdAddCarrinho(12);
-        listaModelo.setQtdAddFavorito(5);
-        listaModelo.setValorproduto(25.80);
         arrayList.add(listaModelo);
 
         return arrayList;
@@ -100,6 +71,8 @@ public class Fragment_Lista extends Fragment {
     }
 
     private void buscarIds(View view){
+        //addCarrinho = view.findViewById(R.id.addCarrinho);
+        //addFavorito = view.findViewById(R.id.addFavorito);
         btn_faq = view.findViewById(R.id.btn_faq);
         btn_code = view.findViewById(R.id.btn_code);
         scannerProduto = view.findViewById(R.id.scannerProduto);
