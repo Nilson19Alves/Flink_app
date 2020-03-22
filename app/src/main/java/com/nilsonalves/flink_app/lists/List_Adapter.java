@@ -41,8 +41,9 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> {
 //                Snackbar.make(view,"Item Adicionado", Snackbar.LENGTH_SHORT)
 //                        .setAction("Sim",null).show();
 //                holder.add_item.setEnabled(false);
-                holder.add_item.setImageResource(R.drawable.icons8_checkmark_48px);
-//                holder.add_item.setBackgroundResource(R.color.BlackMediumGray);
+//                holder.add_item.setImageResource(R.drawable.icons8_checkmark_48px);
+                holder.add_item.setBackgroundResource(R.drawable.icons8_checkmark_48px);
+//                holder.add_item.setBackground(R.drawable.icons8_checkmark_48px);
                 holder.add_item.setOnClickListener(null);
             }
         });
