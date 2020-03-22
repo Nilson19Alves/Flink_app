@@ -4,7 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import com.nilsonalves.flink_app.Flink_Access;
+import com.nilsonalves.flink_app.Flink_Inicio;
 import com.nilsonalves.flink_app.Flink_Login;
+import com.nilsonalves.flink_app.jdbc.Connect;
+
 import java.util.HashMap;
 
 public class SessionManager {
@@ -56,11 +59,11 @@ public class SessionManager {
         return user;
     }
 
-    public void logout() {
+    public void logout(/*Context context*/) {
         editor.clear();
         editor.commit();
-        Intent intent = new Intent(context, Flink_Login.class);
-        context.startActivity(intent);
-        ((Flink_Access) context).finish();
+//        Intent intent = new Intent(context, Flink_Login.class);
+//        context.startActivity(intent);
+//        ((Flink_Inicio) context).finish();
     }
 }

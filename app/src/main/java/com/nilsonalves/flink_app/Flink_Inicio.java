@@ -75,7 +75,10 @@ public class Flink_Inicio extends AppCompatActivity {
         sair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Nada Implementado", Snackbar.LENGTH_SHORT).setAction("OK", null).show();
+                sessionManager.logout();
+                Intent intent = new Intent(getApplicationContext(), Flink_Login.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
