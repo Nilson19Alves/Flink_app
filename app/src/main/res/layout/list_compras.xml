@@ -6,13 +6,14 @@
     android:gravity="center_horizontal"
     android:layout_height="match_parent">
 
-    <ImageButton
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/add_item"
+        style="@style/Widget.AppCompat.ImageButton"
         android:contentDescription="@string/lista_icon_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/White"
-        android:src="@drawable/baseline_add_circle_outline_black_24"
+        android:background="@drawable/icon_add_circle_black_36"
+        android:backgroundTint="@color/MediumPurple"
         android:padding="5dp"/>
 
     <TextView
@@ -24,13 +25,14 @@
         android:textSize="16sp"
         android:textColor="@color/Black"/>
 
-    <ImageButton
+    <androidx.appcompat.widget.AppCompatImageView
         style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:padding="5dp"
-        android:background="@drawable/select_buttom"
+        android:backgroundTint="@color/MediumPurple"
+        android:background="@drawable/icon_question_32"
         android:contentDescription="@string/lista_icon_help" />
 
 </LinearLayout>

@@ -9,10 +9,40 @@
     android:orientation="vertical"
     tools:context=".Flink_Inicio">
 
-    <Button
-        android:id="@+id/no_Mercado"
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessLeaf">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18sp"
+            android:textColor="@color/Black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="Olá, fulano! "/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Selecione abaixo o que você deseja fazer"
+            android:fontFamily="@font/montserrat"
+            android:textSize="16sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/no_Mercado"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_weight="1"
         android:background="@color/DarkOrchid"
         android:textColor="@color/White"
@@ -20,33 +50,37 @@
         android:textSize="22sp"
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/escolher_mercado"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_height="50dp"
         android:layout_weight="1"
         android:background="@color/colorPrimary"
         android:textColor="@color/White"
         android:text="Escolher Mercado"
         android:textSize="22sp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/minhas_listas"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_height="50dp"
         android:layout_weight="1"
         android:background="@color/MediumPurple"
         android:textColor="@color/White"
         android:text="Minhas Listas"
         android:textSize="22sp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/sair"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_height="10dp"
         android:layout_weight="1"
-        android:background="@color/Chocolate"
+        app:backgroundTint="@color/Chocolate"
         android:textColor="@color/White"
         android:text="Sair"
         android:textSize="18sp" />
+
 </LinearLayout>

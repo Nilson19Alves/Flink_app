@@ -20,7 +20,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="left"
-            android:background="@drawable/icon_help_black"
+            android:background="@drawable/icon_question_32"
             android:backgroundTint="@color/MediumPurple"
             android:contentDescription="@string/img_help" />
 
@@ -174,19 +174,15 @@
         android:layout_height="wrap_content"
         tools:ignore="UselessLeaf">
 
-        <com.google.android.material.button.MaterialButton
-            android:padding="8dp"
-            android:id="@+id/btnRetornarLista"
-            android:layout_width="wrap_content"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_height="wrap_content"
-            app:elevation="8dp"
-            app:cornerRadius="50dp"
-            android:fontFamily="@font/montserrat"
-            android:textSize="7sp"
-            android:text="Retornar \n à lista"
-            android:background="@color/SilverWhite"
-            android:layout_gravity="bottom"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnRetornarLista"
+        android:layout_gravity="bottom"
+        android:src="@drawable/icon_arrow_back_black_36"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        app:backgroundTint="@color/SilverWhite"
+        android:tint="@color/Silver"
+        app:rippleColor="@color/Silver"
+        app:elevation="5dp"/>
 
         <LinearLayout
             android:layout_gravity="right"

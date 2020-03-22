@@ -8,38 +8,41 @@
     tools:context=".Flink_Lista">
 
     <GridLayout
-        android:padding="2dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="2dp">
 
         <ImageButton
-            android:background="@color/SilverWhite"
-            android:layout_gravity="left"
             android:id="@+id/btn_faq"
-            android:layout_width="60dp"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="50dp"
             android:layout_height="50dp"
-            android:contentDescription="@string/img_help"
-            android:src="@drawable/icon_help"/>
+            android:layout_gravity="left"
+            android:background="@drawable/icon_question_32"
+            android:backgroundTint="@color/MediumPurple"
+            android:contentDescription="@string/img_help" />
 
         <ImageView
-            android:layout_marginLeft="25dp"
-            android:layout_gravity="center_horizontal"
-            android:contentDescription="@string/img_barra_superior"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
             android:layout_marginTop="-4dp"
-            android:src="@drawable/icon_barra_superior"/>
+            android:layout_gravity="center"
+            android:contentDescription="@string/img_barra_superior"
+            android:src="@drawable/icon_barra_superior" />
 
         <ImageButton
-            android:layout_gravity="right"
             android:id="@+id/btn_code"
-            android:background="@color/SilverWhite"
-            android:contentDescription="@string/img_qr_code"
-            android:layout_width="60dp"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="50dp"
             android:layout_height="50dp"
-            style="@style/ShapeAppearance.MaterialComponents.SmallComponent"
-            android:src="@drawable/icons_qr_40"/>
+            android:layout_gravity="right"
+            android:background="@drawable/icon_qr_code"
+            android:contentDescription="@string/img_qr_code"
+            android:gravity="center"
+            android:padding="10dp" />
 
     </GridLayout>
 
@@ -88,6 +91,7 @@
         android:padding="5dp"
         android:id="@+id/lista_filtro"
         android:background="@color/White"
+        android:voiceIcon="@drawable/icon_voice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -115,8 +119,8 @@
         android:padding="2dp"
         app:elevation="10dp"
         android:layout_gravity="bottom|right"
-        android:background="@drawable/baseline_add_circle_outline_black_24"
         android:layout_width="wrap_content"
+        android:src="@drawable/baseline_check_white_24"
         android:layout_height="wrap_content"
         tools:ignore="RtlHardcoded" />
 

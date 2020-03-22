@@ -14,6 +14,8 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.nilsonalves.flink_app.Flink_Lista;
 import com.nilsonalves.flink_app.Flink_qrCode;
@@ -25,8 +27,8 @@ import java.util.ArrayList;
 public class Fragment_Lista extends Fragment {
     private ImageButton btn_faq,btn_code, addCarrinho, addFavorito;
     private CardView scannerProduto, rotamercado;
+    private FloatingActionButton btnRetornarLista;
     private TextView nomeMercado, totalPagar;
-    private Button btnRetornarLista;
     private RecyclerView recycle_lista;
     private Lista_Adapter listaAdapter;
 
