@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.nilsonalves.flink_app.lists.List_Adapter;
@@ -32,6 +33,7 @@ public class Flink_Lista extends AppCompatActivity {
     private RecyclerView listaItens;
     private ImageButton btn_code, btn_faq;
     private SearchView lista_filtro;
+    private MaterialButton buscarItem;
     private FloatingActionButton confirmar_lista;
     private List_Adapter listAdapter;
     private String url = "https://testeflink.000webhostapp.com/Conexao_mysql/ListaProdutos.php";
@@ -116,6 +118,7 @@ public class Flink_Lista extends AppCompatActivity {
         btn_faq = findViewById(R.id.btn_faq);
         lista_filtro = findViewById(R.id.lista_filtro);
         confirmar_lista = findViewById(R.id.confirmar_lista);
+        buscarItem = findViewById(R.id.buscarItem);
     }
 
     private void btnFloat(){
