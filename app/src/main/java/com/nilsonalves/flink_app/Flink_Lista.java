@@ -18,6 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.nilsonalves.flink_app.lists.List_Adapter;
 import com.nilsonalves.flink_app.lists.Lista_Modelo;
@@ -37,6 +38,7 @@ public class Flink_Lista extends AppCompatActivity {
     private FloatingActionButton confirmar_lista;
     private List_Adapter listAdapter;
     private String url = "https://testeflink.000webhostapp.com/Conexao_mysql/ListaProdutos.php";
+    private String url_busca = "https://testeflink.000webhostapp.com/Conexao_mysql/ListaProdutosBusca.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class Flink_Lista extends AppCompatActivity {
 
         listaItens.setLayoutManager( new LinearLayoutManager(getBaseContext()));
         lista_produto();
+        lista_busca();
     }
 
     private void lista_produto(){
@@ -110,6 +113,81 @@ public class Flink_Lista extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
 
+    }
+
+    private void lista_busca(){
+
+        buscarItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (lista_filtro.getQuery().length() >= 3) {
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url_busca,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    try {
+                                        JSONObject jsonObject = new JSONObject(response);
+                                        JSONArray jsonArray = jsonObject.getJSONArray("Lista");
+
+                                        ArrayList<Lista_Modelo> list = new ArrayList<>();
+
+                                        for (int i = 0; i < jsonArray.length(); i++) {
+                                            JSONObject json_produto = jsonArray.getJSONObject(i);
+
+                                            Lista_Modelo modelo = new Lista_Modelo();
+                                            modelo.setItemCompra(json_produto.getString("Nome"));
+                                            list.add(modelo);
+                                        }
+
+                                        if (list.size() >= 1) {
+                                            listAdapter = new List_Adapter(getBaseContext(),list);
+                                            listAdapter = new List_Adapter(getBaseContext(), list);
+                                            listaItens.setAdapter(listAdapter);
+                                        } else {
+                                            Toast.makeText(getApplicationContext(), getIntent().getExtras().getString("Mercado") + " sem estoque!", Toast.LENGTH_LONG).show();
+                                            new Handler().postDelayed(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    onBackPressed();
+                                                }
+                                            }, 1000);
+                                        }
+
+
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    error.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), "Problema ao busca Produtos!", Toast.LENGTH_LONG).show();
+
+                                }
+                            })
+                    {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<>();
+                            String mercado = Objects.requireNonNull(getIntent().getExtras()).getString("Mercado");
+                            assert mercado != null;
+                            params.put("Mercado", mercado);
+                            params.put("Busca", lista_filtro.getQuery().toString());
+                            return params;
+                        }
+                    };
+                    RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+                    requestQueue.add(stringRequest);
+
+                } else {
+                    lista_filtro.setQuery("", false);
+                    Snackbar.make(v, "Consulta Muito Curta!", BaseTransientBottomBar.LENGTH_SHORT).show();
+                    lista_produto();
+                }
+            }
+        });
     }
 
     private void findIds(){
