@@ -16,6 +16,13 @@
         android:backgroundTint="@color/MediumPurple"
         android:padding="5dp"/>
 
+    <ImageView
+        android:id="@+id/remover"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_dialog_close_light"
+        android:visibility="gone"/>
+
     <TextView
         android:id="@+id/nome_item"
         android:layout_width="250dp"

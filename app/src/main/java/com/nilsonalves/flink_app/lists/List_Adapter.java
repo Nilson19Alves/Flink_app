@@ -35,16 +35,20 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> {
     @Override
     public void onBindViewHolder(@NonNull final List_Holder holder, int position) {
         holder.nome_item.setText(listaModelos.get(position).getItemCompra());
+        final String item = listaModelos.get(position).getItemCompra();
+        final int i = position;
         holder.add_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Snackbar.make(view,"Item Adicionado", Snackbar.LENGTH_SHORT)
-//                        .setAction("Sim",null).show();
-//                holder.add_item.setEnabled(false);
-//                holder.add_item.setImageResource(R.drawable.icons8_checkmark_48px);
-                holder.add_item.setBackgroundResource(R.drawable.icons8_checkmark_48px);
-//                holder.add_item.setBackground(R.drawable.icons8_checkmark_48px);
-                holder.add_item.setOnClickListener(null);
+                holder.add_item.setVisibility(View.GONE);
+                holder.remover.setVisibility(View.VISIBLE);
+            }
+        });
+        holder.remover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.add_item.setVisibility(View.VISIBLE);
+                holder.remover.setVisibility(View.GONE);
             }
         });
     }
