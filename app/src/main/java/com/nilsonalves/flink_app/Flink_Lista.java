@@ -38,8 +38,6 @@ public class Flink_Lista extends AppCompatActivity {
     private MaterialButton buscarItem;
     private FloatingActionButton confirmar_lista;
     private List_Adapter listAdapter;
-    private String url = "https://testeflink.000webhostapp.com/Conexao_mysql/ListaProdutos.php";
-    private String url_busca = "https://testeflink.000webhostapp.com/Conexao_mysql/ListaProdutosBusca.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
