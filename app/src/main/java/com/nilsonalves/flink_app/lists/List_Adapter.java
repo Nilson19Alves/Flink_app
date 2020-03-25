@@ -14,6 +14,7 @@ import com.nilsonalves.flink_app.R;
 import com.nilsonalves.flink_app.jdbc.Connect;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class List_Adapter extends RecyclerView.Adapter<List_Holder> {
     private Context context;
@@ -33,10 +34,9 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final List_Holder holder, int position) {
+    public void onBindViewHolder(@NonNull final List_Holder holder, final int position) {
         holder.nome_item.setText(listaModelos.get(position).getItemCompra());
-        final String item = listaModelos.get(position).getItemCompra();
-        final int i = position;
+
         holder.add_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,4 +58,13 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> {
         return listaModelos.size();
     }
 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
 }

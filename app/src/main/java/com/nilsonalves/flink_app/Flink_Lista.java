@@ -27,6 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -49,145 +50,66 @@ public class Flink_Lista extends AppCompatActivity {
         btnFloat();
 
         listaItens.setLayoutManager( new LinearLayoutManager(getBaseContext()));
-        lista_produto();
-        lista_busca();
+        listAdapter = new List_Adapter(getBaseContext(), lista_produto());
+        listaItens.setAdapter(listAdapter);
     }
 
-    private void lista_produto(){
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            JSONArray jsonArray = jsonObject.getJSONArray("Lista");
+    private ArrayList<Lista_Modelo> lista_produto(){
+        ArrayList<Lista_Modelo> list = new ArrayList<>();
 
-                            ArrayList<Lista_Modelo> list = new ArrayList<>();
+        Lista_Modelo modelo = new Lista_Modelo();
+        modelo.setItemCompra("Café");
+        list.add(modelo);
 
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject json_produto = jsonArray.getJSONObject(i);
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Cereais");
+        list.add(modelo);
 
-                                Lista_Modelo modelo = new Lista_Modelo();
-                                modelo.setItemCompra(json_produto.getString("Nome"));
-                                list.add(modelo);
-                            }
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Achocolatado");
+        list.add(modelo);
 
-                            if (list.size() >= 1) {
-                                listAdapter = new List_Adapter(getBaseContext(),list);
-                                listAdapter = new List_Adapter(getBaseContext(), list);
-                                listaItens.setAdapter(listAdapter);
-                            } else {
-                                Toast.makeText(getApplicationContext(), getIntent().getExtras().getString("Mercado") + " sem estoque!", Toast.LENGTH_LONG).show();
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        onBackPressed();
-                                    }
-                                }, 1000);
-                            }
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Açúcar");
+        list.add(modelo);
 
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Pão de forma");
+        list.add(modelo);
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Problema ao busca Produtos!", Toast.LENGTH_LONG).show();
-                    }
-                })
-        {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                String mercado = Objects.requireNonNull(getIntent().getExtras()).getString("Mercado");
-                assert mercado != null;
-                params.put("Mercado", mercado);
-                return params;
-            }
-        };
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Suco");
+        list.add(modelo);
 
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Adoçante");
+        list.add(modelo);
 
-    }
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Torradas");
+        list.add(modelo);
 
-    private void lista_busca(){
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Geleia");
+        list.add(modelo);
 
-        buscarItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lista_filtro.getQuery().length() >= 3) {
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url_busca,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    try {
-                                        JSONObject jsonObject = new JSONObject(response);
-                                        JSONArray jsonArray = jsonObject.getJSONArray("Lista");
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Atum");
+        list.add(modelo);
 
-                                        ArrayList<Lista_Modelo> list = new ArrayList<>();
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Creme de leite");
+        list.add(modelo);
 
-                                        for (int i = 0; i < jsonArray.length(); i++) {
-                                            JSONObject json_produto = jsonArray.getJSONObject(i);
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Leite condensado");
+        list.add(modelo);
 
-                                            Lista_Modelo modelo = new Lista_Modelo();
-                                            modelo.setItemCompra(json_produto.getString("Nome"));
-                                            list.add(modelo);
-                                        }
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Molho de tomate");
+        list.add(modelo);
 
-                                        if (list.size() >= 1) {
-                                            listAdapter = new List_Adapter(getBaseContext(),list);
-                                            listAdapter = new List_Adapter(getBaseContext(), list);
-                                            listaItens.setAdapter(listAdapter);
-                                        } else {
-                                            Toast.makeText(getApplicationContext(), getIntent().getExtras().getString("Mercado") + " sem estoque!", Toast.LENGTH_LONG).show();
-                                            new Handler().postDelayed(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    onBackPressed();
-                                                }
-                                            }, 1000);
-                                        }
-
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    error.printStackTrace();
-                                    Toast.makeText(getApplicationContext(), "Problema ao busca Produtos!", Toast.LENGTH_LONG).show();
-
-                                }
-                            })
-                    {
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            Map<String, String> params = new HashMap<>();
-                            String mercado = Objects.requireNonNull(getIntent().getExtras()).getString("Mercado");
-                            assert mercado != null;
-                            params.put("Mercado", mercado);
-                            params.put("Busca", lista_filtro.getQuery().toString());
-                            return params;
-                        }
-                    };
-                    RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                    requestQueue.add(stringRequest);
-
-                } else {
-                    lista_filtro.setQuery("", false);
-                    Snackbar.make(v, "Consulta Muito Curta!", BaseTransientBottomBar.LENGTH_SHORT).show();
-                    lista_produto();
-                }
-            }
-        });
+        return list;
     }
 
     private void findIds(){
