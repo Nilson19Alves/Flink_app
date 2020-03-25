@@ -46,6 +46,7 @@ public class Flink_Lista extends AppCompatActivity {
 
         findIds();
         btnFloat();
+        pesquisar_item();
 
         listaItens.setLayoutManager( new LinearLayoutManager(getBaseContext()));
         listAdapter = new List_Adapter(getBaseContext(), lista_produto());
@@ -125,6 +126,21 @@ public class Flink_Lista extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view,"Lista concluida", Snackbar.LENGTH_SHORT)
                         .setAction("Sim",null).show();
+            }
+        });
+    }
+
+    private void pesquisar_item() {
+        lista_filtro.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                listAdapter.getFilter().filter(newText);
+                return false;
             }
         });
     }
