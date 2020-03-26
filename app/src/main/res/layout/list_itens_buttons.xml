@@ -18,16 +18,6 @@
             android:contentDescription="@string/app_name"
             android:padding="5dp" />
 
-        <ImageView
-            android:contentDescription="@string/app_name"
-            android:id="@+id/remover"
-            android:padding="5dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:src="@drawable/ic_dialog_close_light"
-            android:visibility="gone"/>
-
         <TextView
             android:id="@+id/nome_item"
             android:layout_width="250dp"

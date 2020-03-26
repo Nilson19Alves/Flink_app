@@ -16,14 +16,12 @@ import java.util.List;
 
 public class List_Holder extends RecyclerView.ViewHolder {
     TextView nome_item;
-    AppCompatImageView add_item, item_delete;
-    ImageView remover;
+    AppCompatImageView item_delete,add_item;
 
     List_Holder(@NonNull View itemView) {
         super(itemView);
         this.nome_item = itemView.findViewById(R.id.nome_item);
         this.add_item = itemView.findViewById(R.id.add_item);
-        this.remover = itemView.findViewById(R.id.remover);
         this.item_delete = itemView.findViewById(R.id.item_delete);
     }
 }

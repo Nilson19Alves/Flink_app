@@ -1,6 +1,7 @@
 package com.nilsonalves.flink_app.lists;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,9 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.nilsonalves.flink_app.Flink_Lista_Concluida;
 import com.nilsonalves.flink_app.R;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -34,26 +38,18 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> implements F
     @Override
     public void onBindViewHolder(@NonNull final List_Holder holder, final int position) {
         holder.nome_item.setText(listaModelos.get(position).getItemCompra());
-
         holder.add_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                holder.add_item.setVisibility(View.GONE);
-                holder.remover.setVisibility(View.VISIBLE);
-            }
-        });
-        holder.remover.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                holder.add_item.setVisibility(View.VISIBLE);
-                holder.remover.setVisibility(View.GONE);
-            }
-        });
+                try{
+                    removeItem(position);
+                    String item = holder.nome_item.toString();
 
-        holder.item_delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                removeItem(position);
+                    Snackbar.make(v,"Item inserido na lista",Snackbar.LENGTH_SHORT).show();
+                    System.out.println("------------------------"+ item +","+ position);
+                }catch (Exception e){
+                    Snackbar.make(v,"Erro ao inserir item na lista"+ e.getLocalizedMessage(),Snackbar.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -73,13 +69,12 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> implements F
         return position;
     }
 
-    //Inserir um novo item no RecycleView
-    public void insertItem(Lista_Modelo modelo){
-        listaModelos.add(modelo);
-        notifyItemInserted(getItemCount());
-    }
+//    //Inserir um novo item no RecycleView
+//    public void insertItem(Lista_Modelo modelo){
+//        listaModelos.add(modelo);
+//        notifyItemInserted(getItemCount());
+//    }
 
-    //Inserir um novo item no RecycleView
     public void removeItem(int position){
         listaModelos.remove(position);
         notifyItemRemoved(position);

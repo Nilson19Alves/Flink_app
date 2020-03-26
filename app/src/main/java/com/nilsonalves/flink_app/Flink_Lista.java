@@ -3,6 +3,8 @@ package com.nilsonalves.flink_app;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -23,6 +25,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.nilsonalves.flink_app.lists.List_Adapter;
+import com.nilsonalves.flink_app.lists.List_Holder;
 import com.nilsonalves.flink_app.lists.Lista_Modelo;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,6 +42,7 @@ public class Flink_Lista extends AppCompatActivity {
     private MaterialButton buscarItem;
     private FloatingActionButton confirmar_lista;
     private List_Adapter listAdapter;
+    List_Holder holder;
     private Lista_Modelo modelo = new Lista_Modelo();
     private ArrayList<Lista_Modelo> list = new ArrayList<>();
 
@@ -53,10 +57,6 @@ public class Flink_Lista extends AppCompatActivity {
 
         listaItens.setLayoutManager( new LinearLayoutManager(getBaseContext()));
         listAdapter = new List_Adapter(getBaseContext(), lista_produto());
-        listaItens.setAdapter(listAdapter);
-
-        lista_itens_confirmados.setLayoutManager(new LinearLayoutManager(getBaseContext()));
-        listAdapter = new List_Adapter(getBaseContext(),lista_produtos_confirmados());
         listaItens.setAdapter(listAdapter);
 
     }
@@ -138,8 +138,7 @@ public class Flink_Lista extends AppCompatActivity {
         confirmar_lista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view,"Lista concluida", Snackbar.LENGTH_SHORT)
-                        .setAction("Sim",null).show();
+
             }
         });
     }
