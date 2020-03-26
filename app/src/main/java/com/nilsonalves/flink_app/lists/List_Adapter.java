@@ -19,13 +19,13 @@ import java.util.Collection;
 public class List_Adapter extends RecyclerView.Adapter<List_Holder> implements Filterable {
     private Context context;
     private ArrayList<Lista_Modelo> listaModelos;
+    private ArrayList<Lista_Modelo> listaModelosAll;
     private View view;
-    private ArrayList<Lista_Modelo> list_filter;
 
     public List_Adapter(Context context, ArrayList<Lista_Modelo> modelos){
         this.context = context;
         this.listaModelos = modelos;
-        this.list_filter = modelos;
+        this.listaModelosAll = new ArrayList<>(modelos);
     }
 
     @NonNull
@@ -86,26 +86,27 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> implements F
         return filter;
     }
 
-    Filter filter = new Filter() {
+    private Filter filter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
 
             ArrayList<Lista_Modelo> filterRes = new ArrayList<>();
 
-            if (constraint.toString().isEmpty()) {
-                filterRes.addAll(list_filter);
+            if (constraint == null || constraint.length() == 0) {
+                filterRes.addAll(listaModelosAll);
             } else {
-                for (Lista_Modelo movie : list_filter){
-                    if (movie.getItemCompra().toLowerCase().contains(constraint.toString().toLowerCase())) {
-                        filterRes.add(movie);
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (Lista_Modelo item : listaModelosAll){
+                    if (item.getItemCompra().toLowerCase().contains(filterPattern)) {
+                        filterRes.add(item);
                     }
                 }
             }
 
-            FilterResults filterResults = new FilterResults();
-            filterResults.values = filterRes;
+            FilterResults results = new FilterResults();
+            results.values = filterRes;
 
-            return filterResults;
+            return results;
         }
 
         @Override
