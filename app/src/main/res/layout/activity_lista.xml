@@ -48,7 +48,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp"/>
+        android:layout_height="20dp" />
 
     <TextView
         android:paddingLeft="20dp"
@@ -62,15 +62,16 @@
         android:text="@string/lista_title"/>
 
     <TextView
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        android:textColor="@color/Black"
-        android:fontFamily="@font/montserrat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/lista_sub_title"/>
+        android:fontFamily="@font/montserrat"
+        android:lineSpacingExtra="8sp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/lista_sub_title"
+        android:textColor="@color/Black"
+        android:textSize="14sp"
+        android:textStyle="normal" />
 
     <TextView
         android:textColor="@color/Black"
@@ -90,7 +91,7 @@
     <SearchView
         android:id="@+id/lista_filtro"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
         android:background="@color/White"
         android:iconifiedByDefault="false"
         android:inputType="text"
@@ -99,12 +100,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buscarItem"
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.Button"
             android:layout_marginLeft="-50dp"
             app:backgroundTint="@color/colorPrimary"
-            app:icon="@drawable/icon_send_black_18"/>
+            app:icon="@drawable/icon_send_black_18" />
 
     </SearchView>
 
@@ -125,16 +126,15 @@
         android:layout_width="match_parent"
         style="@style/Widget.AppCompat.ListView"
         android:layout_height="wrap_content"/>
-
+    
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/confirmar_lista"
-        android:layout_marginTop="-80dp"
-        android:padding="2dp"
-        app:elevation="10dp"
-        android:layout_gravity="bottom|right"
         android:layout_width="wrap_content"
-        android:src="@drawable/baseline_check_white_24"
         android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:padding="2dp"
+        android:src="@drawable/baseline_check_white_24"
+        app:elevation="10dp"
         tools:ignore="RtlHardcoded" />
 
 </LinearLayout>

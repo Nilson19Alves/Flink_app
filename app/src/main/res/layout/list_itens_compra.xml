@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <ImageButton
+            android:id="@+id/btn_faq"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left"
+            android:background="@drawable/icon_question_32"
+            android:backgroundTint="@color/MediumPurple"
+            android:contentDescription="@string/img_help" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="-4dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/img_barra_superior"
+            android:src="@drawable/icon_barra_superior" />
+
+        <ImageButton
+            android:id="@+id/btn_code"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:background="@drawable/icon_qr_code"
+            android:contentDescription="@string/img_qr_code"
+            android:gravity="center"
+            android:padding="10dp" />
+
+    </GridLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:gravity="center_horizontal"
+        android:text="Minha lista de compras"
+        android:textColor="@color/Black"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lista_itens_confirmados"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:orientation="vertical"/>
+
+</LinearLayout>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:padding="5dp"
     android:layout_height="match_parent">
 
@@ -12,16 +11,15 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/add_item"
             style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/icon_add_circle_black_36"
-            android:backgroundTint="@color/MediumPurple"
+            android:background="@drawable/icons8_checkmark_48px"
             android:contentDescription="@string/app_name"
             android:padding="5dp" />
 
         <ImageView
+            android:contentDescription="@string/app_name"
             android:id="@+id/remover"
             android:padding="5dp"
             android:layout_width="50dp"
@@ -40,11 +38,12 @@
             android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/item_delete"
             style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"
-            android:background="@drawable/icon_question_32"
+            android:layout_gravity="center_vertical"
+            android:background="@android:drawable/ic_menu_delete"
             android:backgroundTint="@color/MediumPurple"
             android:contentDescription="@string/app_name"
             android:padding="5dp" />

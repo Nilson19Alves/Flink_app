@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -27,17 +29,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 public class Flink_Lista extends AppCompatActivity {
-    private RecyclerView listaItens;
+    private RecyclerView listaItens, lista_itens_confirmados;
     private ImageButton btn_code, btn_faq;
     private SearchView lista_filtro;
     private MaterialButton buscarItem;
     private FloatingActionButton confirmar_lista;
     private List_Adapter listAdapter;
+    private Lista_Modelo modelo = new Lista_Modelo();
+    private ArrayList<Lista_Modelo> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +54,11 @@ public class Flink_Lista extends AppCompatActivity {
         listaItens.setLayoutManager( new LinearLayoutManager(getBaseContext()));
         listAdapter = new List_Adapter(getBaseContext(), lista_produto());
         listaItens.setAdapter(listAdapter);
+
     }
 
     private ArrayList<Lista_Modelo> lista_produto(){
-        ArrayList<Lista_Modelo> list = new ArrayList<>();
 
-        Lista_Modelo modelo = new Lista_Modelo();
         modelo.setItemCompra("Café");
         list.add(modelo);
 
@@ -111,6 +113,10 @@ public class Flink_Lista extends AppCompatActivity {
         return list;
     }
 
+    private void listaConfirmados(){
+
+    }
+
     private void findIds(){
         listaItens = findViewById(R.id.lista_compras);
         btn_code = findViewById(R.id.btn_code);
@@ -118,6 +124,7 @@ public class Flink_Lista extends AppCompatActivity {
         lista_filtro = findViewById(R.id.lista_filtro);
         confirmar_lista = findViewById(R.id.confirmar_lista);
         buscarItem = findViewById(R.id.buscarItem);
+        lista_itens_confirmados = findViewById(R.id.lista_itens_confirmados);
     }
 
     private void btnFloat(){

@@ -1,6 +1,9 @@
 package com.nilsonalves.flink_app.lists;
 
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -9,9 +12,11 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.nilsonalves.flink_app.R;
 
+import java.util.List;
+
 public class List_Holder extends RecyclerView.ViewHolder {
     TextView nome_item;
-    AppCompatImageView add_item;
+    AppCompatImageView add_item, item_delete;
     ImageView remover;
 
     List_Holder(@NonNull View itemView) {
@@ -19,6 +24,6 @@ public class List_Holder extends RecyclerView.ViewHolder {
         this.nome_item = itemView.findViewById(R.id.nome_item);
         this.add_item = itemView.findViewById(R.id.add_item);
         this.remover = itemView.findViewById(R.id.remover);
+        this.item_delete = itemView.findViewById(R.id.item_delete);
     }
-
 }
