@@ -32,7 +32,7 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> implements F
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final List_Holder holder, int position) {
+    public void onBindViewHolder(@NonNull final List_Holder holder, final int position) {
         holder.nome_item.setText(listaModelos.get(position).getItemCompra());
 
         holder.add_item.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +47,13 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> implements F
             public void onClick(View v) {
                 holder.add_item.setVisibility(View.VISIBLE);
                 holder.remover.setVisibility(View.GONE);
+            }
+        });
+
+        holder.item_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeItem(position);
             }
         });
     }

@@ -55,6 +55,10 @@ public class Flink_Lista extends AppCompatActivity {
         listAdapter = new List_Adapter(getBaseContext(), lista_produto());
         listaItens.setAdapter(listAdapter);
 
+        lista_itens_confirmados.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+        listAdapter = new List_Adapter(getBaseContext(),lista_produtos_confirmados());
+        listaItens.setAdapter(listAdapter);
+
     }
 
     private ArrayList<Lista_Modelo> lista_produto(){
@@ -113,8 +117,11 @@ public class Flink_Lista extends AppCompatActivity {
         return list;
     }
 
-    private void listaConfirmados(){
+    private ArrayList<Lista_Modelo> lista_produtos_confirmados() {
+        modelo.setItemCompra("");
+        list.add(modelo);
 
+        return list;
     }
 
     private void findIds(){
