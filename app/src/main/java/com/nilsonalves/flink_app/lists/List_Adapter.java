@@ -42,10 +42,10 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> implements F
             @Override
             public void onClick(View v) {
                 try{
-                    removeItem(position);
-                    String item = holder.nome_item.toString();
+                    String item = holder.nome_item.getText().toString();
+                    removeItem(position, item);
 
-                    Snackbar.make(v,"Item inserido na lista",Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(v,"Item inserido na lista P: " + position + item,Snackbar.LENGTH_SHORT).show();
                     System.out.println("------------------------"+ item +","+ position);
                 }catch (Exception e){
                     Snackbar.make(v,"Erro ao inserir item na lista"+ e.getLocalizedMessage(),Snackbar.LENGTH_SHORT).show();
@@ -75,10 +75,17 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> implements F
 //        notifyItemInserted(getItemCount());
 //    }
 
-    public void removeItem(int position){
+    public void removeItem(int position, String item){
         listaModelos.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position,listaModelos.size());
+
+        for (int i = 0; i < listaModelosAll.size(); i++) {
+            if (listaModelosAll.get(i).getItemCompra().equalsIgnoreCase(item)) {
+                listaModelosAll.remove(i);
+            }
+        }
+
     }
 
     @Override
