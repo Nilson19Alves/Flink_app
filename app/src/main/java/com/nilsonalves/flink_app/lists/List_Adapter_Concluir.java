@@ -30,6 +30,8 @@ public class List_Adapter_Concluir extends RecyclerView.Adapter<List_Holder> {
 
     @Override
     public void onBindViewHolder(@NonNull List_Holder holder, final int position) {
+        holder.nome_item.setText(lista_modelos.get(position).getItemCompra());
+        System.out.println("Holder item = " + lista_modelos.get(position).getItemCompra());
         holder.item_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

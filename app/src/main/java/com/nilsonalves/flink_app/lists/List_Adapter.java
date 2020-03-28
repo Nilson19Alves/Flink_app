@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -76,10 +78,17 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> implements F
 //    }
 
     public void removeItem(int position, String item){
+        // removendo da lista
         listaModelos.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position,listaModelos.size());
 
+        // chamada da class Flink_lista_Concluida add a pre lista
+        Lista_Modelo get_item = new Lista_Modelo();
+        get_item.setItemCompra(item);
+        Flink_Lista_Concluida.pre_lista_modelo.add(get_item);
+
+        // Removendo da lista de pesquisa
         for (int i = 0; i < listaModelosAll.size(); i++) {
             if (listaModelosAll.get(i).getItemCompra().equalsIgnoreCase(item)) {
                 listaModelosAll.remove(i);

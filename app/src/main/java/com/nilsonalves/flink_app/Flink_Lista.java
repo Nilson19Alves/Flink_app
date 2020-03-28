@@ -138,7 +138,8 @@ public class Flink_Lista extends AppCompatActivity {
         confirmar_lista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), Flink_Lista_Concluida.class);
+                startActivity(intent);
             }
         });
     }

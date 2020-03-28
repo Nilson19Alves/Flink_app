@@ -13,6 +13,7 @@
         <activity android:name=".Flink_Rota_Mercado" />
         <activity android:name=".FeedTeste" />
         <activity android:name=".Flink_Inicio" />
+        <activity android:name=".Flink_Lista_Concluida" />
         <activity android:name=".Flink_Lista" />
         <activity android:name=".Flink_Access" />
         <activity android:name=".Flink_qrCode" />
