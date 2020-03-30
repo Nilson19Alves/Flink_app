@@ -1,23 +1,15 @@
 package com.nilsonalves.flink_app;
 
 import android.os.Bundle;
-import android.widget.Adapter;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.nilsonalves.flink_app.lists.List_Adapter;
 import com.nilsonalves.flink_app.lists.List_Adapter_Concluir;
-import com.nilsonalves.flink_app.lists.List_Holder;
 import com.nilsonalves.flink_app.lists.Lista_Modelo;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class Flink_Lista_Concluida extends AppCompatActivity {
     private FloatingActionButton concluirCompras;

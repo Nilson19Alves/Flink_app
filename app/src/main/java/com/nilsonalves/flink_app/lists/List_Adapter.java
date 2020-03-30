@@ -1,17 +1,13 @@
 package com.nilsonalves.flink_app.lists;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.snackbar.Snackbar;
 import com.nilsonalves.flink_app.Flink_Lista_Concluida;
 import com.nilsonalves.flink_app.R;
@@ -47,13 +43,14 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> implements F
                     String item = holder.nome_item.getText().toString();
                     removeItem(position, item);
 
-                    Snackbar.make(v,"Item inserido na lista P: " + position + item,Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(v,item + " inserido na lista",Snackbar.LENGTH_SHORT).show();
                     System.out.println("------------------------"+ item +","+ position);
                 }catch (Exception e){
                     Snackbar.make(v,"Erro ao inserir item na lista"+ e.getLocalizedMessage(),Snackbar.LENGTH_SHORT).show();
                 }
             }
         });
+
     }
 
     @Override
@@ -71,11 +68,11 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> implements F
         return position;
     }
 
-//    //Inserir um novo item no RecycleView
-//    public void insertItem(Lista_Modelo modelo){
-//        listaModelos.add(modelo);
-//        notifyItemInserted(getItemCount());
-//    }
+    //Inserir um novo item no RecycleView
+    public void insertItem(Lista_Modelo modelo){
+        listaModelos.add(modelo);
+        notifyItemInserted(getItemCount());
+    }
 
     public void removeItem(int position, String item){
         // removendo da lista
@@ -94,7 +91,6 @@ public class List_Adapter extends RecyclerView.Adapter<List_Holder> implements F
                 listaModelosAll.remove(i);
             }
         }
-
     }
 
     @Override

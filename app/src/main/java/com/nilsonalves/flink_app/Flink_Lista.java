@@ -39,7 +39,6 @@ public class Flink_Lista extends AppCompatActivity {
     private RecyclerView listaItens, lista_itens_confirmados;
     private ImageButton btn_code, btn_faq;
     private SearchView lista_filtro;
-    private MaterialButton buscarItem;
     private FloatingActionButton confirmar_lista;
     private List_Adapter listAdapter;
     private Lista_Modelo modelo = new Lista_Modelo();
@@ -374,7 +373,6 @@ public class Flink_Lista extends AppCompatActivity {
         btn_faq = findViewById(R.id.btn_faq);
         lista_filtro = findViewById(R.id.lista_filtro);
         confirmar_lista = findViewById(R.id.confirmar_lista);
-        buscarItem = findViewById(R.id.buscarItem);
         lista_itens_confirmados = findViewById(R.id.lista_itens_confirmados);
     }
 

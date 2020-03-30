@@ -99,13 +99,13 @@
         android:queryHint="Pesquise seu item">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buscarItem"
+            android:id="@+id/adicionarItem"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-50dp"
-            app:backgroundTint="@color/colorPrimary"
-            app:icon="@drawable/icon_send_black_18" />
+            app:backgroundTint="@color/SilverWhite"
+            app:icon="@android:drawable/ic_input_add" />
 
     </SearchView>
 
