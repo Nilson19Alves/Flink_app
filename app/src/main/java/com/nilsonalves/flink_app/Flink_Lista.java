@@ -159,4 +159,17 @@ public class Flink_Lista extends AppCompatActivity {
         });
     }
 
+    private void adcionar_item() {
+        buscarItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (lista_filtro.getQuery().length() >= 3) {
+                    // add na lista concluida
+                    // limpar SearchView lista_filtro;
+                    // setar a lista completa
+                }
+            }
+        });
+    }
+
 }
