@@ -24,7 +24,7 @@ public class List_Adapter_Concluir extends RecyclerView.Adapter<List_Holder> {
     @NonNull
     @Override
     public List_Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_itens_buttons,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_itens_concluidos,parent,false);
         return new List_Holder(view);
     }
 

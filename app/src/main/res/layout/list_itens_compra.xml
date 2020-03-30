@@ -63,36 +63,14 @@
         android:padding="5dp"
         android:orientation="vertical"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/voltar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:textSize="14sp"
-            android:layout_gravity="left"
-            style="@style/Widget.MaterialComponents.Button"
-            android:text="VOLTAR"/>
-
-        <Space
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/concluirCompras"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:text="CONCLUIR"
-            android:layout_gravity="right"
-            android:textSize="14sp" />
-
-    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/concluirCompras"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:backgroundTint="@color/colorPrimary"
+        android:padding="2dp"
+        android:src="@drawable/baseline_check_white_24" />
 
 </LinearLayout>

@@ -42,7 +42,6 @@ public class Flink_Lista extends AppCompatActivity {
     private MaterialButton buscarItem;
     private FloatingActionButton confirmar_lista;
     private List_Adapter listAdapter;
-    List_Holder holder;
     private Lista_Modelo modelo = new Lista_Modelo();
     private ArrayList<Lista_Modelo> list = new ArrayList<>();
 
@@ -63,14 +62,6 @@ public class Flink_Lista extends AppCompatActivity {
 
     private ArrayList<Lista_Modelo> lista_produto(){
 
-        modelo.setItemCompra("Café");
-        list.add(modelo);
-
-        modelo = new Lista_Modelo();
-        modelo.setItemCompra("Cereais");
-        list.add(modelo);
-
-        modelo = new Lista_Modelo();
         modelo.setItemCompra("Achocolatado");
         list.add(modelo);
 
@@ -79,23 +70,39 @@ public class Flink_Lista extends AppCompatActivity {
         list.add(modelo);
 
         modelo = new Lista_Modelo();
-        modelo.setItemCompra("Pão de forma");
-        list.add(modelo);
-
-        modelo = new Lista_Modelo();
-        modelo.setItemCompra("Suco");
-        list.add(modelo);
-
-        modelo = new Lista_Modelo();
         modelo.setItemCompra("Adoçante");
         list.add(modelo);
 
         modelo = new Lista_Modelo();
-        modelo.setItemCompra("Torradas");
+        modelo.setItemCompra("Agrião");
         list.add(modelo);
 
         modelo = new Lista_Modelo();
-        modelo.setItemCompra("Geleia");
+        modelo.setItemCompra("Água sanitária");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Álcool");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Alface");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Algodão");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Alho");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Amaciante");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Arroz");
         list.add(modelo);
 
         modelo = new Lista_Modelo();
@@ -103,7 +110,139 @@ public class Flink_Lista extends AppCompatActivity {
         list.add(modelo);
 
         modelo = new Lista_Modelo();
+        modelo.setItemCompra("Azeite");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Azeitonas");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Batata");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Brócolis");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Café");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Carnes e derivados");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Cebola");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Cenoura");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Cera");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Cereais");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Condicionador");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Cotonete");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Couve");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
         modelo.setItemCompra("Creme de leite");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Creme dental");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Desinfetante");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Desodorante");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Detergente");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Espinafre");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Esponja");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Farinha de mandioca");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Farinha de trigo");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Feijão");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Fermento");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Filme plástico");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Filtros para café");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Fio dental");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Fósforos");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Frango");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Geleia");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Guardanapos");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Iogurte");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Lâmina de barbear");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Leite");
         list.add(modelo);
 
         modelo = new Lista_Modelo();
@@ -111,14 +250,119 @@ public class Flink_Lista extends AppCompatActivity {
         list.add(modelo);
 
         modelo = new Lista_Modelo();
+        modelo.setItemCompra("Limpa vidros");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Lustra-móveis");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Maisena");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Manteiga");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Margarina");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
         modelo.setItemCompra("Molho de tomate");
         list.add(modelo);
 
-        return list;
-    }
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Óleo");
+        list.add(modelo);
 
-    private ArrayList<Lista_Modelo> lista_produtos_confirmados() {
-        modelo.setItemCompra("");
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Ovos");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Palha de aço");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Palitos de dente");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Pão de forma ");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Papel higiênico");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Papel toalha");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Peixe");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Pimentão");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Pipoca");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Presunto");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Queijo ralado");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Queijos");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Requeijão");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Sabão");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Sabonete");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Saco de lixo");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Sal");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Shampoo");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Suco");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Temperos");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Tomate");
+        list.add(modelo);
+
+        modelo = new Lista_Modelo();
+        modelo.setItemCompra("Vinagre");
         list.add(modelo);
 
         return list;

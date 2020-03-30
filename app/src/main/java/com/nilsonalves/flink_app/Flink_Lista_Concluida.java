@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.nilsonalves.flink_app.lists.List_Adapter;
 import com.nilsonalves.flink_app.lists.List_Adapter_Concluir;
 import com.nilsonalves.flink_app.lists.List_Holder;
@@ -19,10 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Flink_Lista_Concluida extends AppCompatActivity {
-    private MaterialButton voltar, concluirCompras;
+    private FloatingActionButton concluirCompras;
     private RecyclerView lista_itens_confirmados;
-    private List_Holder holderConcluir;
-    private Lista_Modelo modeloConcluir;
     private List_Adapter_Concluir adapterConcluir;
     public static ArrayList<Lista_Modelo> pre_lista_modelo = new ArrayList<>();
 
@@ -31,9 +30,7 @@ public class Flink_Lista_Concluida extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_itens_compra);
 
-        voltar = findViewById(R.id.voltar);
-        concluirCompras = findViewById(R.id.concluirCompras);
-        lista_itens_confirmados = findViewById(R.id.lista_itens_confirmados);
+        buscarIds();
 
         lista_itens_confirmados.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         adapterConcluir = new List_Adapter_Concluir(getBaseContext(),lista_produtos_concluir());
@@ -50,6 +47,11 @@ public class Flink_Lista_Concluida extends AppCompatActivity {
             System.out.println(listaModelos.get(i).getItemCompra());
         }
         return listaModelos;
+    }
+
+    private void buscarIds(){
+        concluirCompras = findViewById(R.id.concluirCompras);
+        lista_itens_confirmados = findViewById(R.id.lista_itens_confirmados);
     }
 
 }

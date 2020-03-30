@@ -16,7 +16,8 @@ import java.util.List;
 
 public class List_Holder extends RecyclerView.ViewHolder {
     TextView nome_item;
-    AppCompatImageView item_delete,add_item;
+    AppCompatImageView add_item;
+    ImageButton item_delete;
 
     List_Holder(@NonNull View itemView) {
         super(itemView);
