@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.DownloadManager;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -40,6 +42,7 @@ public class Flink_Lista extends AppCompatActivity {
     private ImageButton btn_code, btn_faq;
     private SearchView lista_filtro;
     private FloatingActionButton confirmar_lista;
+    private MaterialButton adicionarItem;
     private List_Adapter listAdapter;
     private Lista_Modelo modelo = new Lista_Modelo();
     private ArrayList<Lista_Modelo> list = new ArrayList<>();
@@ -52,6 +55,7 @@ public class Flink_Lista extends AppCompatActivity {
         findIds();
         btnFloat();
         pesquisar_item();
+        adcionar_item();
 
         listaItens.setLayoutManager( new LinearLayoutManager(getBaseContext()));
         listAdapter = new List_Adapter(getBaseContext(), lista_produto());
@@ -374,6 +378,7 @@ public class Flink_Lista extends AppCompatActivity {
         lista_filtro = findViewById(R.id.lista_filtro);
         confirmar_lista = findViewById(R.id.confirmar_lista);
         lista_itens_confirmados = findViewById(R.id.lista_itens_confirmados);
+        adicionarItem = findViewById(R.id.adicionarItem);
     }
 
     private void btnFloat(){
@@ -396,20 +401,38 @@ public class Flink_Lista extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 listAdapter.getFilter().filter(newText);
+
+                // bt Adicionar
+                if (lista_filtro.getQuery().length() >= 2) {
+                    adicionarItem.setEnabled(true);
+                    adicionarItem.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.MediumPurple)));
+                } else {
+                    adicionarItem.setEnabled(false);
+                    adicionarItem.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.SilverWhite)));
+                }
+
                 return false;
             }
         });
     }
 
     private void adcionar_item() {
-        buscarItem.setOnClickListener(new View.OnClickListener() {
+        adicionarItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (lista_filtro.getQuery().length() >= 3) {
-                    // add na lista concluida
-                    // limpar SearchView lista_filtro;
-                    // setar a lista completa
+                if (lista_filtro.getQuery().length() >= 2) {
+                    // chamada da class Flink_lista_Concluida add a pre lista
+                    Lista_Modelo get_item = new Lista_Modelo();
+                    get_item.setItemCompra(lista_filtro.getQuery().toString());
+                    Flink_Lista_Concluida.pre_lista_modelo.add(get_item);
+
+                    adicionarItem.setEnabled(false);
+                    adicionarItem.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.SilverWhite)));
+                    lista_filtro.setQuery(null, false);
                 }
+                // add na lista concluida
+                // limpar SearchView lista_filtro;
+                // setar a lista completa
             }
         });
     }

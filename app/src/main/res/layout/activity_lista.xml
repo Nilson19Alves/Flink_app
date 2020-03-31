@@ -88,26 +88,33 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"/>
 
-    <SearchView
-        android:id="@+id/lista_filtro"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/White"
-        android:iconifiedByDefault="false"
-        android:inputType="text"
-        android:padding="5dp"
-        android:queryHint="Pesquise seu item">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <SearchView
+            android:id="@+id/lista_filtro"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/White"
+            android:iconifiedByDefault="false"
+            android:layout_marginRight="60dp"
+            android:inputType="text"
+            android:padding="5dp"
+            android:queryHint="Pesquise seu item">
+
+        </SearchView>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/adicionarItem"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-50dp"
+            android:layout_marginLeft="-55dp"
+            android:layout_marginRight="5dp"
             app:backgroundTint="@color/SilverWhite"
             app:icon="@android:drawable/ic_input_add" />
-
-    </SearchView>
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -126,7 +133,7 @@
         android:layout_width="match_parent"
         style="@style/Widget.AppCompat.ListView"
         android:layout_height="wrap_content"/>
-    
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/confirmar_lista"
         android:layout_width="wrap_content"
