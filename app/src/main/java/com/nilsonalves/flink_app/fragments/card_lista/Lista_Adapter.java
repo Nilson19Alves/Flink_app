@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.nilsonalves.flink_app.R;
+import com.nilsonalves.flink_app.lists.Lista_Modelo;
+
 import java.util.ArrayList;
 
 public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder> {
@@ -32,7 +34,6 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.descricaoProduto.setText(modelo.get(position).getDescricaoProduto());
-
 
         clickLista(holder, position);
     }

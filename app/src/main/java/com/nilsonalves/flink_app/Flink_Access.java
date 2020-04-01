@@ -70,7 +70,7 @@ public class Flink_Access extends AppCompatActivity implements BottomNavigationV
     }
 
     // Evento ao chamar activity fragment
-    private void openFragment(Fragment fragment) {
+    public void openFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame, fragment);
         transaction.addToBackStack(null);
