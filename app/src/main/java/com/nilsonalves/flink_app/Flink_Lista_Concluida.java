@@ -1,6 +1,8 @@
 package com.nilsonalves.flink_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,7 @@ public class Flink_Lista_Concluida extends AppCompatActivity {
         setContentView(R.layout.list_itens_compra);
 
         buscarIds();
+        setConcluirCompras();
 
         lista_itens_confirmados.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         adapterConcluir = new List_Adapter_Concluir(getBaseContext(),lista_produtos_concluir());
@@ -44,6 +47,18 @@ public class Flink_Lista_Concluida extends AppCompatActivity {
     private void buscarIds(){
         concluirCompras = findViewById(R.id.concluirCompras);
         lista_itens_confirmados = findViewById(R.id.lista_itens_confirmados);
+    }
+
+    private void setConcluirCompras () {
+        concluirCompras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Flink_Access.class);
+                intent.putExtra("fragment", "Lista");
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 }

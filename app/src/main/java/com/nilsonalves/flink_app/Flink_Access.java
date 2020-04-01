@@ -28,8 +28,20 @@ public class Flink_Access extends AppCompatActivity implements BottomNavigationV
 
         ID_Access();
 
-        openFragment(new Fragment_Home());
-        navegation.setOnNavigationItemSelectedListener(Flink_Access.this);
+        Bundle bundle = getIntent().getExtras();
+        String fragment = bundle.get("fragment").toString();
+
+        if (fragment.equalsIgnoreCase("Home")) {
+            openFragment(new Fragment_Home());
+            navegation.setOnNavigationItemSelectedListener(Flink_Access.this);
+        }
+
+        if (fragment.equalsIgnoreCase("Lista")) {
+            openFragment(new Fragment_Lista());
+            navegation.setOnNavigationItemSelectedListener(Flink_Access.this);
+        }
+
+
     }
 
     private void ID_Access(){
