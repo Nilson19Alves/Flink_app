@@ -59,6 +59,7 @@ public class Flink_Inicio extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Flink_Access.class);
+                intent.putExtra("fragment", "Home");
                 startActivity(intent);
                 finish();
             }
