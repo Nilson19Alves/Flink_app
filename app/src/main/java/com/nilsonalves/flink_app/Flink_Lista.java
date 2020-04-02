@@ -46,6 +46,7 @@ public class Flink_Lista extends AppCompatActivity {
     private List_Adapter listAdapter;
     private Lista_Modelo modelo = new Lista_Modelo();
     private ArrayList<Lista_Modelo> list = new ArrayList<>();
+    private ArrayList<Lista_Modelo> getList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

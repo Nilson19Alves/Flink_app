@@ -3,15 +3,14 @@ package com.nilsonalves.flink_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.nilsonalves.flink_app.lists.List_Adapter_Concluir;
 import com.nilsonalves.flink_app.lists.Lista_Modelo;
 import java.util.ArrayList;
@@ -20,7 +19,6 @@ public class Flink_Lista_Concluida extends AppCompatActivity {
     private RecyclerView lista_itens_confirmados;
     private List_Adapter_Concluir adapterConcluir;
     private FloatingActionButton concluirCompras;
-    private ProgressBar progressBar;
     public static ArrayList<Lista_Modelo> pre_lista_modelo = new ArrayList<>();
 
     @Override
@@ -51,18 +49,17 @@ public class Flink_Lista_Concluida extends AppCompatActivity {
     private void buscarIds(){
         lista_itens_confirmados = findViewById(R.id.lista_itens_confirmados);
         concluirCompras = findViewById(R.id.concluirCompras);
-        progressBar = (ProgressBar)findViewById(R.id.progressBar2);
     }
 
-    private void setConcluirCompras(){
+    private void setConcluirCompras() {
         concluirCompras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                progressBar.setVisibility(View.VISIBLE);
-                Snackbar.make(v,"Lista salva com sucesso",Snackbar.LENGTH_SHORT).show();
-                Intent intent = new Intent(Flink_Lista_Concluida.this,Flink_Access.class);
-                startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), Flink_Access.class);
+                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(), R.anim.anima_activity_fade_in, R.anim.anima_atctivity_fade_out);
+                intent.putExtra("fragment", "Lista");
+                ActivityCompat.startActivity(Flink_Lista_Concluida.this, intent, optionsCompat.toBundle());
+                finish();
             }
         });
     }

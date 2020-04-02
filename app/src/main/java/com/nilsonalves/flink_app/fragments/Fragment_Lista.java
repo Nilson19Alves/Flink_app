@@ -54,8 +54,6 @@ public class Fragment_Lista extends Fragment {
         return view;
     }
 
-
-
     private ArrayList<Card_Lista_Modelo> getDadosLista() {
         ArrayList<Card_Lista_Modelo> arrayList = new ArrayList<Card_Lista_Modelo>();
 
