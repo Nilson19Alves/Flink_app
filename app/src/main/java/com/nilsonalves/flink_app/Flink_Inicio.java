@@ -3,15 +3,22 @@ package com.nilsonalves.flink_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.nilsonalves.flink_app.Util.SessionManager;
 import com.nilsonalves.flink_app.jdbc.Connect_Remot;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 
 public class Flink_Inicio extends AppCompatActivity {
@@ -21,6 +28,7 @@ public class Flink_Inicio extends AppCompatActivity {
     private Button escolher_mercado;
     private Button minhas_listas;
     private Button sair;
+    private String bd;
     SessionManager sessionManager;
 
     @Override
@@ -69,7 +77,9 @@ public class Flink_Inicio extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Connect_Remot.connection();
-                Snackbar.make(v, "Nada Implementado", Snackbar.LENGTH_SHORT).setAction("OK", null).show();
+                //Snackbar.make(v, "Nada Implementado", Snackbar.LENGTH_SHORT).setAction("OK", null).show();
+                new myTask().execute();
+
             }
         });
 
@@ -82,5 +92,48 @@ public class Flink_Inicio extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    // Teste Banco de Dados Mysql com AsyncTask
+    class myTask extends AsyncTask<Void, Void, Void> {
+
+        // Antes de Task Executar
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        // Execução
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            String url = "jdbc:mysql://remotemysql.com:3306/LsNEUoch4h";
+            String user = "LsNEUoch4h";
+            String password = "e7R8ahT7GR";
+            String sql = "SELECT * FROM user";
+
+            try {
+                Connection connection = DriverManager.getConnection(url, user, password);
+                //Toast.makeText(getApplicationContext(), "Conectado", Toast.LENGTH_SHORT).show();
+                System.out.println("Conectado !");
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+                while (resultSet.next()) {
+                    System.out.println(resultSet.getString("Nome"));
+                    bd = resultSet.getString("Nome");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        // Apos a task Finalizar
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            sair.setText(bd);
+            super.onPostExecute(aVoid);
+        }
     }
 }
