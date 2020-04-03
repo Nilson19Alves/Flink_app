@@ -83,6 +83,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="65dp"
         android:background="@color/GreyBackground"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -90,18 +91,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <Button
         android:id="@+id/concluirCompras"
-        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="169dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="146dp"
+        android:layout_marginBottom="15dp"
         android:backgroundTint="@color/colorPrimary"
-        android:padding="2dp"
-        android:src="@drawable/baseline_check_white_24"
+        android:elevation="10dp"
+        android:fontFamily="@font/montserrat"
+        android:padding="15dp"
+        android:text="Concluir Minha Lista"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.595"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lista_itens_confirmados"
+        app:layout_constraintVertical_bias="0.2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

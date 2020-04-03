@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +26,7 @@ import java.util.List;
 public class Flink_Lista_Concluida extends AppCompatActivity {
     private RecyclerView lista_itens_confirmados;
     private List_Adapter_Concluir adapterConcluir;
-    private FloatingActionButton concluirCompras;
+    private Button concluirCompras;
     public static ArrayList<Lista_Modelo> pre_lista_modelo = new ArrayList<>();
 
     @Override
@@ -96,9 +97,8 @@ public class Flink_Lista_Concluida extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             Intent intent = new Intent(getApplicationContext(), Flink_Access.class);
-            ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(), R.anim.anima_activity_fade_in, R.anim.anima_atctivity_fade_out);
             intent.putExtra("fragment", "Lista");
-            ActivityCompat.startActivity(Flink_Lista_Concluida.this, intent, optionsCompat.toBundle());
+            startActivity(intent);
             finish();
             super.onPostExecute(aVoid);
         }
