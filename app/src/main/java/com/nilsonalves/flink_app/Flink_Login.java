@@ -3,6 +3,7 @@ package com.nilsonalves.flink_app;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,12 +18,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.nilsonalves.flink_app.Util.SessionManager;
+import com.nilsonalves.flink_app.jdbc.Connect_info;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,7 +63,8 @@ public class Flink_Login extends AppCompatActivity {
                     if (!password.isEmpty()) {
                         progress.setVisibility(View.VISIBLE);
                         entrar.setVisibility(View.INVISIBLE);
-                        login(fone, password);
+                        //login(fone, password);
+                        new validar_login().execute();
                     } else {
                         Flink_Login.this.password.setError("Senha");
                     }
@@ -77,6 +85,7 @@ public class Flink_Login extends AppCompatActivity {
 
     // Consulta e validação de usuario para LOGIN do Banco de Dados
     private void login(final String fone, final String password) {
+
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -156,5 +165,59 @@ public class Flink_Login extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    // Consulta, validação e criação de SESSION do usuario no Banco de dados Remoto
+    class validar_login extends AsyncTask<Void, Void, Void> {
+
+        String nome_bd = "";
+        String phone_bd = "";
+        String password_bd = "";
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            Connection con = Connect_info.connection();
+
+            String sql = "SELECT * FROM Users WHERE Telefone = ? AND Senha = ? LIMIT 1;";
+            try {
+                PreparedStatement preparedStatement = con.prepareStatement(sql);
+                preparedStatement.setString(1, phone.getText().toString());
+                preparedStatement.setString(2, password.getText().toString());
+
+                ResultSet resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    nome_bd = resultSet.getString("Nome");
+                    phone_bd = resultSet.getString("Telefone");
+                    password_bd = resultSet.getString("Senha");
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            if (!nome_bd.isEmpty() && !phone_bd.isEmpty() && !password_bd.isEmpty()) {
+                progress.setVisibility(View.GONE);
+                entrar.setVisibility(View.VISIBLE);
+
+                sessionManager.creatSession(nome_bd, phone_bd, password_bd);
+
+                Intent intent = new Intent(getApplicationContext(), Flink_Inicio.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Snackbar.make(getCurrentFocus(), "Telefone ou Senha Incorretos!", BaseTransientBottomBar.LENGTH_SHORT).show();
+                progress.setVisibility(View.GONE);
+                entrar.setVisibility(View.VISIBLE);
+                Flink_Login.this.password.setError("Senha");
+                Flink_Login.this.password.getText().clear();
+            }
+            super.onPostExecute(aVoid);
+        }
     }
 }
