@@ -24,7 +24,6 @@ public class List_Holder extends RecyclerView.ViewHolder {
     MaterialButton adicionarItem;
     FloatingActionButton concluirCompras;
 
-
     List_Holder(@NonNull View itemView) {
         super(itemView);
         this.nome_item = itemView.findViewById(R.id.nome_item);

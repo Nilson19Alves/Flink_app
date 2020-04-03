@@ -29,7 +29,13 @@ public class Flink_Splash extends AppCompatActivity {
         progress_splash = findViewById(R.id.progress_splash);
 
         inspect();
+//        atalhoTeste();
 
+    }
+
+    private void atalhoTeste(){
+        Intent lista = new Intent(Flink_Splash.this,Flink_Lista.class);
+        startActivity(lista);
     }
 
     private void inspect() {
