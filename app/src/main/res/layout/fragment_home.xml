@@ -72,6 +72,13 @@
         android:textColor="@color/Black"
         android:textSize="16sp"/>
 
+    <ProgressBar
+        android:id="@+id/progress_mercados"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:progressBackgroundTint="@color/DarkOrchid"
+        android:visibility="visible"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

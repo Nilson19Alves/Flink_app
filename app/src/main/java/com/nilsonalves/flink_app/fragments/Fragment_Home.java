@@ -1,12 +1,14 @@
 package com.nilsonalves.flink_app.fragments;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -26,9 +28,17 @@ import com.nilsonalves.flink_app.R;
 import com.nilsonalves.flink_app.Util.SessionManager;
 import com.nilsonalves.flink_app.fragments.card_home.Home_Adapter;
 import com.nilsonalves.flink_app.fragments.card_home.Home_Modelo;
+import com.nilsonalves.flink_app.jdbc.Connect_info;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,6 +48,7 @@ public class Fragment_Home extends Fragment {
     private Home_Adapter adapter;
     private TextView title_home_user;
     private ImageButton btn_code, btn_faq;
+    private ProgressBar progress_mercados;
     SessionManager sessionManager;
     private final String url = "https://testeflink.000webhostapp.com/Conexao_mysql/Home.php";
 
@@ -55,10 +66,12 @@ public class Fragment_Home extends Fragment {
         lista_supermer = view.findViewById(R.id.lista_supermer);
         btn_code = view.findViewById(R.id.btn_code);
         btn_faq = view.findViewById(R.id.btn_faq);
+        progress_mercados = view.findViewById(R.id.progress_mercados);
 
         lista_supermer.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        lista_home();
+        //lista_home();
+        new encontrar_mercado().execute();
         ClickQRBottom();
 
         sessionManager = new SessionManager(getContext());
@@ -137,5 +150,46 @@ public class Fragment_Home extends Fragment {
                 startActivity(qr);
             }
         });
+    }
+
+    // Consulta de mercados no banco de dados remoto
+    class encontrar_mercado extends AsyncTask<Void, Void, Void> {
+
+        ArrayList<Home_Modelo> list = new ArrayList<>();
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String sql = "SELECT * FROM Mercado;";
+            Connection con = Connect_info.connection();
+            try {
+                Statement statement = con.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+
+                while (resultSet.next()) {
+                    Home_Modelo listaHome = new Home_Modelo();
+                    listaHome.setTitulo(resultSet.getString("Nome"));
+                    listaHome.setClassifica(resultSet.getString("Classificacao"));
+                    listaHome.setDistancia(resultSet.getDouble("Distancia"));
+                    listaHome.setStatus(resultSet.getString("Status"));
+                    listaHome.setEndereco(resultSet.getString("Localizacao"));
+                    listaHome.setURL_logo(resultSet.getString("URL_logo"));
+
+                    System.out.println(listaHome.getTitulo());
+                    list.add(listaHome);
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            progress_mercados.setVisibility(View.GONE);
+            adapter = new Home_Adapter(getContext(), list);
+            lista_supermer.setAdapter(adapter);
+            super.onPostExecute(aVoid);
+        }
     }
 }
