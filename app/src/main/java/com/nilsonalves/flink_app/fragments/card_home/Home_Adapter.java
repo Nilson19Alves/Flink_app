@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButton;
 import com.nilsonalves.flink_app.Flink_Lista;
 import com.nilsonalves.flink_app.Flink_Rota_Mercado;
 import com.nilsonalves.flink_app.R;
@@ -56,13 +57,17 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView title_card, distancia_card, classifica_card, endereco_card, status_card;
-        ImageButton localiza_mercado;
+        MaterialButton localiza_mercado;
         ImageView logo;
         CardView card_card;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
+            buscarIds();
+        }
 
+        //Associando Ids
+        private void buscarIds(){
             title_card = itemView.findViewById(R.id.title_card);
             classifica_card = itemView.findViewById(R.id.classifica_card);
             distancia_card = itemView.findViewById(R.id.distancia_card);
@@ -72,9 +77,9 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
             logo = itemView.findViewById(R.id.logo);
             card_card = itemView.findViewById(R.id.card_card);
         }
-
     }
 
+    //Evento ao clicar no card do Supermercado
     private void clickCards(final ViewHolder viewHolder, final String mercado){
         viewHolder.card_card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +91,7 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
         });
     }
 
+    //Evento ao clicar no icon mapa
     private void clickButtomMapa(ViewHolder holder, int position) {
         holder.localiza_mercado.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,5 +101,4 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
             }
         });
     }
-
 }

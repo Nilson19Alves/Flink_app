@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -14,10 +13,9 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.nilsonalves.flink_app.Flink_Lista;
+import com.nilsonalves.flink_app.Flink_Rota_Mercado;
 import com.nilsonalves.flink_app.Flink_qrCode;
 import com.nilsonalves.flink_app.R;
 import com.nilsonalves.flink_app.fragments.card_lista.Card_Lista_Modelo;
@@ -25,8 +23,8 @@ import com.nilsonalves.flink_app.fragments.card_lista.Lista_Adapter;
 import java.util.ArrayList;
 
 public class Fragment_Lista extends Fragment {
-    private ImageButton btn_faq,btn_code, addCarrinho, addFavorito;
-    private CardView scannerProduto, rotamercado;
+    private ImageButton btn_faq,btn_code;
+    private CardView scannerProduto, rotaMercado;
     private FloatingActionButton btnRetornarLista;
     private TextView nomeMercado, totalPagar;
     private RecyclerView recycle_lista;
@@ -44,6 +42,8 @@ public class Fragment_Lista extends Fragment {
 
         buscarIds(view);
         clickBntFloat();
+        scannerProdutoClick();
+        rotaMercadoClick();
         clickFaq();
         clickCode();
 
@@ -54,6 +54,7 @@ public class Fragment_Lista extends Fragment {
         return view;
     }
 
+    //Criando ArrayList dos produtos da tela Feed (Fragment_Lista)
     private ArrayList<Card_Lista_Modelo> getDadosLista() {
         ArrayList<Card_Lista_Modelo> arrayList = new ArrayList<Card_Lista_Modelo>();
 
@@ -68,23 +69,45 @@ public class Fragment_Lista extends Fragment {
         return arrayList;
     }
 
+    //Instância padrão do Fragment_Lista
     public static Fragment_Lista newInstance(){
         return new Fragment_Lista();
     }
 
+    //Associando Ids
     private void buscarIds(View view){
-        //addCarrinho = view.findViewById(R.id.addCarrinho);
-        //addFavorito = view.findViewById(R.id.addFavorito);
         btn_faq = view.findViewById(R.id.btn_faq);
         btn_code = view.findViewById(R.id.btn_code);
         scannerProduto = view.findViewById(R.id.scannerProduto);
-        rotamercado = view.findViewById(R.id.rotaMercado);
+        rotaMercado = view.findViewById(R.id.rotaMercado);
         nomeMercado = view.findViewById(R.id.nomeMercado);
         totalPagar = view.findViewById(R.id.totalPagar);
         btnRetornarLista = view.findViewById(R.id.btnRetornarLista);
         recycle_lista = view.findViewById(R.id.recycle_lista);
     }
 
+    //Botão para scanner do produto
+    private void scannerProdutoClick(){
+        scannerProduto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+    //Botão rota no mercado
+    private void rotaMercadoClick(){
+        rotaMercado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent rota = new Intent(getContext(), Flink_Rota_Mercado.class);
+                startActivity(rota);
+            }
+        });
+    }
+
+    //Botão para voltar para tela de Lista
     private void clickBntFloat(){
         btnRetornarLista.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +118,7 @@ public class Fragment_Lista extends Fragment {
         });
     }
 
+    //Click na Interogação para saber mais
     private void clickFaq(){
         btn_faq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +128,7 @@ public class Fragment_Lista extends Fragment {
         });
     }
 
+    //Click no Qr Code
     private void clickCode(){
         btn_code.setOnClickListener(new View.OnClickListener() {
             @Override

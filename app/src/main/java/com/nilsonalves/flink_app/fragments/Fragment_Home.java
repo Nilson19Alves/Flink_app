@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -35,7 +34,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -63,7 +61,7 @@ public class Fragment_Home extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         title_home_user = view.findViewById(R.id.title_home_user);
-        lista_supermer = view.findViewById(R.id.lista_supermer);
+        lista_supermer = view.findViewById(R.id.recycle_lista);
         btn_code = view.findViewById(R.id.btn_code);
         btn_faq = view.findViewById(R.id.btn_faq);
         progress_mercados = view.findViewById(R.id.progress_mercados);
@@ -82,6 +80,7 @@ public class Fragment_Home extends Fragment {
         return view;
     }
 
+    //Instância do fragmento Home
     public static Fragment_Home newInstance(){
         return new Fragment_Home();
     }
@@ -141,7 +140,7 @@ public class Fragment_Home extends Fragment {
         requestQueue.add(stringRequest);
     }
 
-    //Botão QR Code fragment home
+    //Botão QR Code fragmento Home
     private void ClickQRBottom(){
         btn_code.setOnClickListener(new View.OnClickListener() {
             @Override

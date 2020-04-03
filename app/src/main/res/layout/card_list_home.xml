@@ -4,28 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/SilverWhite"
     android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@color/GreyBackground"
     android:padding="5dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_card"
+        android:background="@color/White"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:animateLayoutChanges="true"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:animateLayoutChanges="true"
+        android:padding="10dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/White"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
+                style="@style/MaterialAlertDialog.MaterialComponents.Title.Icon.CenterStacked"
                 android:id="@+id/logo"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
@@ -43,7 +46,7 @@
                 android:id="@+id/title_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="90dp"
+                android:layout_marginStart="100dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/montserrat"
@@ -74,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="110dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginEnd="200dp"
+                android:layout_marginEnd="160dp"
                 android:fontFamily="@font/montserrat"
                 android:textColor="@color/MediumPurple"
                 android:textSize="14sp"
@@ -90,11 +93,12 @@
                 android:id="@+id/distancia_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="260dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginStart="250dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="99dp"
                 android:fontFamily="@font/montserrat"
+                android:gravity="left"
                 android:orientation="horizontal"
                 android:textColor="@color/MediumPurple"
                 android:textSize="14sp"
@@ -139,6 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:padding="4dp"
+                android:background="@color/White"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -149,7 +154,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="180dp"
+                    android:layout_marginEnd="150dp"
                     android:layout_marginBottom="26dp"
                     android:fontFamily="@font/montserrat"
                     android:textColor="@color/MediumPurple"
@@ -176,15 +181,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/status_card" />
 
-                <ImageButton
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/localiza_mercado"
-                    android:layout_width="wrap_content"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="40dp"
-                    style="@style/Widget.AppCompat.ImageButton"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/efeito_buttom_feed"
                     android:contentDescription="@string/app_name"
-                    android:background="@drawable/select_buttom"
-                    android:backgroundTint="@color/MediumPurple"
+                    android:gravity="center"
+                    app:icon="@drawable/baseline_map_black_24"
+                    app:iconTint="@color/MediumPurple"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

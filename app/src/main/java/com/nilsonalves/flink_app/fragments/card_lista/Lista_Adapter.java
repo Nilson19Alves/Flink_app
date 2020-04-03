@@ -4,15 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.button.MaterialButton;
 import com.nilsonalves.flink_app.R;
-import com.nilsonalves.flink_app.lists.Lista_Modelo;
-
 import java.util.ArrayList;
 
 public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder> {
@@ -46,23 +44,26 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView descricaoProduto, qtdAddCarrinho, qtdAddFavorito, valorproduto;
         CardView card_lista;
-        ImageView imagemProduto;
+        MaterialButton addCarrinho, addFavorito;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             buscaId();
         }
 
+        //Associando ids
         private void buscaId(){
             descricaoProduto = itemView.findViewById(R.id.descricaoProduto);
-            card_lista = itemView.findViewById(R.id.card_lista);
             qtdAddCarrinho = itemView.findViewById(R.id.qtdAddCarrinho);
             qtdAddFavorito = itemView.findViewById(R.id.qtdAddFavorito);
             valorproduto = itemView.findViewById(R.id.valorproduto);
-            imagemProduto = itemView.findViewById(R.id.imagemProduto);
+            addCarrinho = itemView.findViewById(R.id.addCarrinho);
+            addFavorito = itemView.findViewById(R.id.addFavorito);
+            card_lista = itemView.findViewById(R.id.card_lista);
         }
     }
 
+    //Evento ao click no card PRODUTO
     private void clickLista(ViewHolder viewHolder, final int position){
         viewHolder.card_lista.setOnClickListener(new View.OnClickListener() {
             @Override

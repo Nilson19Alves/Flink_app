@@ -191,7 +191,7 @@
 
         <androidx.cardview.widget.CardView
             style="@style/Widget.MaterialComponents.CardView"
-            android:id="@+id/scannerProduto"
+            android:id="@+id/rotaMercado"
             app:cardElevation="8dp"
             app:cardUseCompatPadding="true"
             app:contentPadding="10dp"
