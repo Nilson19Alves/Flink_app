@@ -3,55 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="2dp"
     android:background="@color/White"
     android:elevation="10dp">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageButton
         android:id="@+id/add_item"
-        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/icon_add_item_18"
-        android:backgroundTint="@color/MediumPurple"
-        android:contentDescription="@string/app_name"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
         android:padding="5dp"
+        android:src="@drawable/icon_add_item_18"
+        android:tint="@color/MediumPurple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/nome_item"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="49dp"
         android:fontFamily="@font/montserrat"
         android:gravity="center_vertical"
-        android:textColor="@color/BlackGray"
+        android:textColor="@color/Black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/appCompatImageView"
+        app:layout_constraintEnd_toStartOf="@+id/item_delete"
         app:layout_constraintStart_toEndOf="@+id/add_item"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView"
-        style="@style/Widget.AppCompat.ImageButton"
+    <ImageButton
+        android:id="@+id/item_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/icon_interogacao"
-        android:contentDescription="@string/app_name"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="5dp"
+        android:background="@android:color/transparent"
         android:padding="5dp"
+        android:tint="@color/MediumPurple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:srcCompat="@drawable/icon_interogacao"
+        tools:ignore="ContentDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

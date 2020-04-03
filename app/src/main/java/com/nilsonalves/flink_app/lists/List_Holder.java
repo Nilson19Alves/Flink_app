@@ -19,7 +19,7 @@ import java.util.List;
 
 public class List_Holder extends RecyclerView.ViewHolder {
     TextView nome_item;
-    AppCompatImageView add_item;
+    ImageButton add_item;
     ImageButton item_delete;
     MaterialButton adicionarItem;
     FloatingActionButton concluirCompras;
