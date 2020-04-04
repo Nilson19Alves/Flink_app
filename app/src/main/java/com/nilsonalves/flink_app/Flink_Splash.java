@@ -86,7 +86,8 @@ public class Flink_Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(), Flink_Inicio.class);
+                Intent intent = new Intent(getApplicationContext(), Flink_Access.class);
+                intent.putExtra("fragment", "Feed");
                 startActivity(intent);
                 finish();
             }

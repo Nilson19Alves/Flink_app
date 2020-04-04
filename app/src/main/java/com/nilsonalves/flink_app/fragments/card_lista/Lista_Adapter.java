@@ -11,11 +11,15 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.button.MaterialButton;
 import com.nilsonalves.flink_app.R;
+
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder> {
     private Context context;
     private ArrayList<Card_Lista_Modelo> modelo;
+    private NumberFormat numberFormat = NumberFormat.getNumberInstance(new Locale("br"));
 
     public Lista_Adapter(Context con, ArrayList<Card_Lista_Modelo> cardLista_modelo){
         this.context = con;
@@ -25,6 +29,7 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        numberFormat.setMinimumFractionDigits(2);
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_list_lista,null);
         return new ViewHolder(view);
     }
@@ -32,6 +37,9 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.descricaoProduto.setText(modelo.get(position).getDescricaoProduto());
+        String valor = "R$ " + numberFormat.format(modelo.get(position).getValorproduto());
+        holder.valorproduto.setText(valor);
+        System.out.println(valor);
 
         clickLista(holder, position);
     }

@@ -41,6 +41,11 @@ public class Flink_Access extends AppCompatActivity implements BottomNavigationV
             navegation.setOnNavigationItemSelectedListener(Flink_Access.this);
         }
 
+        if (fragment.equalsIgnoreCase("Feed")) {
+            openFragment(new Fragment_Lista());
+            navegation.setOnNavigationItemSelectedListener(Flink_Access.this);
+        }
+
 
     }
 
@@ -91,8 +96,6 @@ public class Flink_Access extends AppCompatActivity implements BottomNavigationV
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(getApplicationContext(), Flink_Inicio.class);
-        startActivity(intent);
         finish();
     }
 }

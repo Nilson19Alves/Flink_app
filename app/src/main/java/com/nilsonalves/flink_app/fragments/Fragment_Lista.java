@@ -1,6 +1,7 @@
 package com.nilsonalves.flink_app.fragments;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,12 @@ import com.nilsonalves.flink_app.Flink_qrCode;
 import com.nilsonalves.flink_app.R;
 import com.nilsonalves.flink_app.fragments.card_lista.Card_Lista_Modelo;
 import com.nilsonalves.flink_app.fragments.card_lista.Lista_Adapter;
+import com.nilsonalves.flink_app.jdbc.Connect_info;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Fragment_Lista extends Fragment {
@@ -48,8 +55,7 @@ public class Fragment_Lista extends Fragment {
         clickCode();
 
         recycle_lista.setLayoutManager(new LinearLayoutManager(getContext()));
-        listaAdapter = new Lista_Adapter(getContext(),getDadosLista());
-        recycle_lista.setAdapter(listaAdapter);
+        new itensBD().execute();
 
         return view;
     }
@@ -139,4 +145,36 @@ public class Fragment_Lista extends Fragment {
         });
     }
 
+    // Carregar Itens do Banco de Dados
+    class itensBD extends AsyncTask<Void, Void, Void> {
+
+        ArrayList<Card_Lista_Modelo> list = new ArrayList<>();
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Connection con = Connect_info.connection();
+            String sql = "SELECT * FROM Produto;";
+            try {
+                Statement statement = con.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+                while (resultSet.next()) {
+                    Card_Lista_Modelo card_lista_modelo = new Card_Lista_Modelo();
+
+                    card_lista_modelo.setDescricaoProduto(resultSet.getString("Nome"));
+                    card_lista_modelo.setValorproduto(resultSet.getDouble("Valor"));
+                    list.add(card_lista_modelo);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            listaAdapter = new Lista_Adapter(getContext(),list);
+            recycle_lista.setAdapter(listaAdapter);
+            super.onPostExecute(aVoid);
+        }
+    }
 }

@@ -207,7 +207,8 @@ public class Flink_Login extends AppCompatActivity {
 
                 sessionManager.creatSession(nome_bd, phone_bd, password_bd);
 
-                Intent intent = new Intent(getApplicationContext(), Flink_Inicio.class);
+                Intent intent = new Intent(getApplicationContext(), Flink_Access.class);
+                intent.putExtra("fragment", "Feed");
                 startActivity(intent);
                 finish();
             } else {
