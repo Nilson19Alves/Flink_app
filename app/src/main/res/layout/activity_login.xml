@@ -26,33 +26,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.2"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:gravity="center"
-            android:text="LOGIN"
-            android:textColor="@color/MediumPurple"
-            android:textSize="22sp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:gravity="top|center"
-            android:text="Checkout Inteligente"
-            android:textColor="@color/Chocolate"
-            android:textSize="16sp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
@@ -99,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:progressBackgroundTint="@color/DarkOrchid"
-            android:visibility="visible"
+            android:visibility="gone"
 
             />
 
