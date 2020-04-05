@@ -71,7 +71,7 @@ public class Flink_Lista_Concluida extends AppCompatActivity {
     // Salvar lista concluida no banco de dados
     class save_list extends AsyncTask<Void, Void, Void> {
 
-        String sql = "INSERT INTO `Lista` (`ID_User`, `ID_Mercado`, `Item`) VALUES (?, ?, ?);";
+        String sql = "INSERT INTO `Lista_users` (`ID_User`, `Item`) VALUES (?, ?);";
 
         @Override
         protected Void doInBackground(Void... voids) {
@@ -81,8 +81,7 @@ public class Flink_Lista_Concluida extends AppCompatActivity {
                 try {
                     PreparedStatement preparedStatement = con.prepareStatement(sql);
                     preparedStatement.setInt(1, 1);
-                    preparedStatement.setInt(2, 2);
-                    preparedStatement.setString(3, pre_lista_modelo.get(i).getItemCompra());
+                    preparedStatement.setString(2, pre_lista_modelo.get(i).getItemCompra());
 
                     preparedStatement.executeUpdate();
 

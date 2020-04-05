@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class Connect_info {
 
-    private final static String url = "jdbc:mysql://remotemysql.com:3306/LsNEUoch4h";
-    private final static String user = "LsNEUoch4h";
-    private final static String password = "e7R8ahT7GR";
+    private final static String url = "jdbc:mysql://remotemysql.com:3306/ngz2OJ9ig1";
+    private final static String user = "ngz2OJ9ig1";
+    private final static String password = "Aj4bCKpQtm";
 
     public static Connection connection() {
         Connection con = null;

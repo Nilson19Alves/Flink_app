@@ -153,15 +153,16 @@ public class Fragment_Lista extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
             Connection con = Connect_info.connection();
-            String sql = "SELECT * FROM Produto;";
+            String sql = "SELECT codbar, produto, peso, foto_png FROM tbl_mercado_97 ORDER BY RAND() limit 10;";
             try {
                 Statement statement = con.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
                 while (resultSet.next()) {
                     Card_Lista_Modelo card_lista_modelo = new Card_Lista_Modelo();
 
-                    card_lista_modelo.setDescricaoProduto(resultSet.getString("Nome"));
-                    card_lista_modelo.setValorproduto(resultSet.getDouble("Valor"));
+                    card_lista_modelo.setDescricaoProduto(resultSet.getString("produto"));
+                    //card_lista_modelo.setValorproduto(resultSet.getDouble("Valor"));
+                    card_lista_modelo.setValorproduto(2162.20);
                     list.add(card_lista_modelo);
                 }
             } catch (SQLException e) {
