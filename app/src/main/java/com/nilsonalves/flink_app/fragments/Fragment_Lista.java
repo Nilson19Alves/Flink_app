@@ -22,7 +22,6 @@ import com.nilsonalves.flink_app.R;
 import com.nilsonalves.flink_app.fragments.card_lista.Card_Lista_Modelo;
 import com.nilsonalves.flink_app.fragments.card_lista.Lista_Adapter;
 import com.nilsonalves.flink_app.jdbc.Connect_info;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -97,7 +96,8 @@ public class Fragment_Lista extends Fragment {
         scannerProduto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent rota = new Intent(getContext(), Flink_qrCode.class);
+                startActivity(rota);
             }
         });
     }
@@ -157,6 +157,7 @@ public class Fragment_Lista extends Fragment {
             try {
                 Statement statement = con.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
+
                 while (resultSet.next()) {
                     Card_Lista_Modelo card_lista_modelo = new Card_Lista_Modelo();
 

@@ -10,7 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.nilsonalves.flink_app.R;
+import com.nilsonalves.flink_app.lists.Lista_Modelo;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -41,6 +43,8 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
         holder.valorproduto.setText(valor);
         System.out.println(valor);
 
+        clickCarrinho(holder);
+        clickFavoritos(holder);
         clickLista(holder, position);
     }
 
@@ -71,12 +75,32 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
         }
     }
 
+    //Evento ao clicar para o carrinho
+    private void clickFavoritos(final ViewHolder holder){
+        holder.addFavorito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v,holder.descricaoProduto.getText() +" adicionado a favoritos.",Snackbar.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    //Evento ao clicar para favoritos
+    private void clickCarrinho(final ViewHolder holder){
+        holder.addCarrinho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v,holder.descricaoProduto.getText() +" adicionado ao carrinho.",Snackbar.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     //Evento ao click no card PRODUTO
-    private void clickLista(ViewHolder viewHolder, final int position){
+    private void clickLista(final ViewHolder viewHolder, final int position){
         viewHolder.card_lista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"Clique "+ position,Toast.LENGTH_SHORT).show();
+                Snackbar.make(view,viewHolder.descricaoProduto.getText(),Snackbar.LENGTH_SHORT).show();
             }
         });
     }
