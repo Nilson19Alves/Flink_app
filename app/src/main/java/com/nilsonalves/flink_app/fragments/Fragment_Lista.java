@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +34,7 @@ public class Fragment_Lista extends Fragment {
     private CardView scannerProduto, rotaMercado;
     private FloatingActionButton btnRetornarLista;
     private TextView nomeMercado, totalPagar;
+    private ProgressBar progressLista;
     private RecyclerView recycle_lista;
     private Lista_Adapter listaAdapter;
 
@@ -89,6 +91,7 @@ public class Fragment_Lista extends Fragment {
         totalPagar = view.findViewById(R.id.totalPagar);
         btnRetornarLista = view.findViewById(R.id.btnRetornarLista);
         recycle_lista = view.findViewById(R.id.recycle_lista);
+        progressLista = view.findViewById(R.id.progressLista);
     }
 
     //Botão para scanner do produto
