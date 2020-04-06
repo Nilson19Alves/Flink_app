@@ -177,6 +177,7 @@ public class Fragment_Lista extends Fragment {
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            progressLista.setVisibility(View.GONE);
             listaAdapter = new Lista_Adapter(getContext(),list);
             recycle_lista.setAdapter(listaAdapter);
             super.onPostExecute(aVoid);
