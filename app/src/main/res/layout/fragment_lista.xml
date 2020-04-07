@@ -57,11 +57,10 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@color/White"
-        android:orientation="horizontal"
+        android:foregroundGravity="center_vertical|center_horizontal"
         app:cardCornerRadius="10dp"
         app:cardElevation="8dp"
         app:cardPreventCornerOverlap="true"
@@ -75,44 +74,27 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:columnCount="4"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:columnCount="3"
             android:orientation="horizontal"
             android:padding="5dp"
             android:rowCount="1"
             tools:ignore="UselessLeaf">
 
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="21dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/icon_local" />
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center"
                 android:layout_marginRight="10dp"
                 android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:text="@string/feed_card_title"
-                    android:textColor="@color/OrangeLight"
-                    android:textSize="10sp"
-                    tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:id="@+id/nomeMercado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/montserrat"
-                    android:text="VerdFruit"
+                    android:text="Valor Total"
                     android:textColor="@color/BlackMediumGray"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -135,14 +117,15 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
                     android:text="@string/feed_card_valor"
@@ -152,7 +135,7 @@
 
                 <TextView
                     android:id="@+id/totalPagar"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat"
                     android:text="R$ 412,64"
@@ -173,6 +156,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:background="@color/GreyBackground"
+        android:fadeScrollbars="true"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

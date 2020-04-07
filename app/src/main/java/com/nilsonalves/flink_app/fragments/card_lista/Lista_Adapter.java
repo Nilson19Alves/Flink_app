@@ -1,19 +1,20 @@
 package com.nilsonalves.flink_app.fragments.card_lista;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.transition.Hold;
 import com.nilsonalves.flink_app.R;
-import com.nilsonalves.flink_app.lists.Lista_Modelo;
-
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -43,6 +44,7 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
         holder.valorproduto.setText(valor);
         System.out.println(valor);
 
+        clickLocalizar(holder);
         clickCarrinho(holder);
         clickFavoritos(holder);
         clickLista(holder, position);
@@ -53,26 +55,24 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
         return modelo.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView descricaoProduto, qtdAddCarrinho, qtdAddFavorito, valorproduto;
-        CardView card_lista;
-        MaterialButton addCarrinho, addFavorito;
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            buscaId();
-        }
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
 
-        //Associando ids
-        private void buscaId(){
-            descricaoProduto = itemView.findViewById(R.id.descricaoProduto);
-            qtdAddCarrinho = itemView.findViewById(R.id.qtdAddCarrinho);
-            qtdAddFavorito = itemView.findViewById(R.id.qtdAddFavorito);
-            valorproduto = itemView.findViewById(R.id.valorproduto);
-            addCarrinho = itemView.findViewById(R.id.addCarrinho);
-            addFavorito = itemView.findViewById(R.id.addFavorito);
-            card_lista = itemView.findViewById(R.id.card_lista);
-        }
+    //Evento ao clicar no item de localizar o item
+    private void clickLocalizar(final ViewHolder viewHolder){
+        viewHolder.localizarProduto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v,"Nada implementado",Snackbar.LENGTH_SHORT).show();
+            }
+        });
     }
 
     //Evento ao clicar para o carrinho
@@ -103,5 +103,29 @@ public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ViewHolder
                 Snackbar.make(view,viewHolder.descricaoProduto.getText(),Snackbar.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        TextView descricaoProduto, qtdAddCarrinho, qtdAddFavorito, valorproduto;
+        CardView card_lista;
+        MaterialButton addCarrinho, addFavorito;
+        Button localizarProduto;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            buscaId();
+        }
+
+        //Associando ids
+        private void buscaId(){
+            descricaoProduto = itemView.findViewById(R.id.descricaoProduto);
+            qtdAddCarrinho = itemView.findViewById(R.id.qtdAddCarrinho);
+            qtdAddFavorito = itemView.findViewById(R.id.qtdAddFavorito);
+            valorproduto = itemView.findViewById(R.id.valorproduto);
+            addCarrinho = itemView.findViewById(R.id.addCarrinho);
+            addFavorito = itemView.findViewById(R.id.addFavorito);
+            card_lista = itemView.findViewById(R.id.card_lista);
+            localizarProduto = itemView.findViewById(R.id.localizarProduto);
+        }
     }
 }

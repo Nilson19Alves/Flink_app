@@ -15,16 +15,15 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navegation"
+            style="@style/Widget.Design.BottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="@color/White"
-            app:itemTextColor="@color/OrangeLight"
-            app:itemIconTint="@color/OrangeLight"
             app:itemIconSize="@dimen/activity_horizontal_margin"
-            style="@style/Widget.Design.BottomNavigationView"
-            app:menu="@menu/bottom_navegation"
-            />
+            app:itemIconTint="@color/OrangeLight"
+            app:itemTextColor="@color/MediumPurple"
+            app:menu="@menu/bottom_navegation" />
 
     </FrameLayout>
 

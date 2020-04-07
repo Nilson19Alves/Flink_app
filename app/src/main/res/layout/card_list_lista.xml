@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -41,13 +42,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="32dp"
         android:fontFamily="@font/montserrat"
         android:text="18"
         android:textColor="@color/OrangeLight"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toEndOf="@+id/card_lista"
         app:layout_constraintTop_toBottomOf="@+id/addFavorito"
         tools:ignore="MissingConstraints" />
@@ -62,7 +62,6 @@
         android:padding="20dp"
         app:cardBackgroundColor="@color/White"
         app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.477"
@@ -82,6 +81,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="225dp"
@@ -134,16 +134,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="35dp"
         android:fontFamily="@font/montserrat"
         android:text="18"
         android:textColor="@color/OrangeLight"
         android:textSize="10sp"
         app:layout_constraintEnd_toStartOf="@+id/card_lista"
+        app:layout_constraintHorizontal_bias="0.61"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addCarrinho"
         tools:ignore="MissingConstraints" />
 
+    <Button
+        android:id="@+id/localizarProduto"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="210dp"
+        android:layout_marginEnd="80dp"
+        android:background="@drawable/efeito_buttom_feed"
+        android:contentDescription="@string/app_name"
+        android:elevation="200dp"
+        android:foregroundTint="@color/GreyBackground"
+        android:paddingStart="2dp"
+        app:backgroundTint="@android:color/transparent"
+        app:icon="@drawable/icon_local_item_24"
+        app:iconTint="@color/OrangeLight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
